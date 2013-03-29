@@ -60,7 +60,7 @@ public class CourseSessionTest extends TestCase {
 		assertEquals(
 			"학생 목록\n----\n" + 
 			"A\nB\n" + 
-			"\n학생 수 : 2명", 
+			"\n학생 수 : 2", 
 			rosterReport);
 	}
 }
