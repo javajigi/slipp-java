@@ -1,4 +1,4 @@
-package study;
+package net.slipp.collection;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;

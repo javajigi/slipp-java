@@ -1,4 +1,4 @@
-package study;
+package net.slipp.date;
 
 import java.util.Calendar;
 

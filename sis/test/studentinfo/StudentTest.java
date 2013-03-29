@@ -4,11 +4,11 @@ import junit.framework.TestCase;
 
 public class StudentTest extends TestCase {
 	public void testCreate() {
-		String firstName = "Àç¼º";
+		String firstName = "ìž¬ì„±";
 		Student student = new Student(firstName);
 		assertEquals(firstName, student.getName());
 		
-		String secondName = "ÁÖÇÑ";
+		String secondName = "ì£¼í•œ";
 		Student secondStudent = new Student(secondName);
 		assertEquals(secondName, secondStudent.getName());
 		

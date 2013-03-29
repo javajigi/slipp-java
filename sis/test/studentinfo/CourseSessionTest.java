@@ -23,6 +23,8 @@ public class CourseSessionTest extends TestCase {
 	}
 	
 	public void testCreate() throws Exception {
+		CourseSession session = new CourseSession("ENGL", "200");
+		
 		assertEquals("ENGL", session.getDepartment());
 		assertEquals("200", session.getNumber());
 		assertEquals(0, session.getNumberOfStudents());
@@ -30,13 +32,13 @@ public class CourseSessionTest extends TestCase {
 	}
 	
 	public void testEnrollStudents() {
-		Student student1 = new Student("�缺");
+		Student student1 = new Student("재성");
 		session.enroll(student1);
 		assertEquals(1, session.getNumberOfStudents());
 		
 		assertEquals(student1, session.getStudent(0));
 		
-		Student student2 = new Student("����");
+		Student student2 = new Student("주한");
 		session.enroll(student2);
 		assertEquals(2, session.getNumberOfStudents());
 		assertEquals(student1, session.getStudent(0));
@@ -48,13 +50,17 @@ public class CourseSessionTest extends TestCase {
 		
 		Date sixteenWeeksOut = createDate(2013, 6, 21);
 		assertEquals(sixteenWeeksOut, session.getEndDate());
-	}
-	
+	}	
+
 	public void testRoasterReport() throws Exception {
 		session.enroll(new Student("A"));
 		session.enroll(new Student("B"));
 		
 		String rosterReport = session.getRosterReport();
-		assertEquals("A\nB\n", rosterReport);
+		assertEquals(
+			"학생 목록\n----\n" + 
+			"A\nB\n" + 
+			"\n학생 수 : 2명", 
+			rosterReport);
 	}
 }

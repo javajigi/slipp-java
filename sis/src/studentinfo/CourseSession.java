@@ -48,7 +48,7 @@ class CourseSession {
 	Date getEndDate() {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(startDate);
-		int numberOfDays = 16 * 7 - 3; // weeks * days per week – 3 days
+		int numberOfDays = 16 * 7 - 3; // weeks * days per week ��3 days
 		calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
 		return calendar.getTime();
 	}
@@ -58,16 +58,6 @@ class CourseSession {
 	}
 
 	public String getRosterReport() {
-		StringBuilder buffer = new StringBuilder();
-		
-		Student student = students.get(0);
-		buffer.append(student.getName());
-		buffer.append('\n');
-		
-		student = students.get(1);
-		buffer.append(student.getName());
-		buffer.append('\n');
-		
-		return buffer.toString();
+		return null;
 	}
 }
