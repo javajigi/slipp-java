@@ -1,15 +1,36 @@
+import java.util.ArrayList;
+
 
 public class CourseSession {
+	private String department;
+	private String number;
+	private int numberOfStudents = 0;
+	
+	private ArrayList<Student> students = new ArrayList<Student>();
 
-	public CourseSession(String department, String number) {
+	CourseSession(String department, String number) {
+		this.department = department;
+		this.number = number;
 	}
 
-	public String getDepartment() {
-		return null;
+	String getDepartment() {
+		return department;
 	}
 
-	public String getNumber() {
-		return null;
+	String getNumber() {
+		return number;
 	}
 
+	int getNumberOfStudents() {
+		return numberOfStudents;
+	}
+
+	void enroll(Student student) {
+		numberOfStudents += 1;
+		students.add(student);
+	}
+
+	ArrayList<Student> getAllStudents() {
+		return students;
+	}
 }
