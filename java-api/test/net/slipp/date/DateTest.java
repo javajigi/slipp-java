@@ -7,8 +7,8 @@ import junit.framework.TestCase;
 public class DateTest extends TestCase {
 	public void testDate() throws Exception {
 		Date now = new Date();
-		System.out.println("ÇöÀç ½Ã°£ : " + now);
-		System.out.println("ÇöÀç ¹Ð¸®ÃÊ : " + now.getTime());
+		System.out.println("í˜„ìž¬ : " + now);
+		System.out.println("í˜„ìž¬ ë°€ë¦¬ì´ˆ : " + now.getTime());
 		
 		Date date = new Date(00,1,23);
 		System.out.println("2013-01-23 : " + date);

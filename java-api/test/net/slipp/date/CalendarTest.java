@@ -1,14 +1,15 @@
 package net.slipp.date;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import junit.framework.TestCase;
 
 public class CalendarTest extends TestCase {
 	public void testCalendar() throws Exception {
-		Calendar now = Calendar.getInstance();
-		System.out.println("ÇöÀç ½Ã°£ : " + now.getTime());
-		System.out.println("ÇöÀç ¹Ğ¸®ÃÊ : " + now.getTimeInMillis());
+		GregorianCalendar now = new GregorianCalendar();
+		System.out.println("í˜„ì¬ : " + now.getTime());
+		System.out.println("í˜„ì¬ ë°€ë¦¬ì´ˆ : " + now.getTimeInMillis());
 		
 		now.set(2013,1,23);
 		System.out.println("2013-01-23 : " + now.getTime());
@@ -18,21 +19,21 @@ public class CalendarTest extends TestCase {
 	}
 	
     public void testCalendar2() throws Exception {
-        Calendar date = Calendar.getInstance();
+    	GregorianCalendar date = new GregorianCalendar();
         date.set(2013,1,23);
-        printDate("ÇöÀç ½Ã°£ : ", date);
+        printDate("í˜„ì¬ ì‹œê°„ : ", date);
         
         date.add(Calendar.WEEK_OF_YEAR, -1);
-        printDate("1ÁÖÀÏ Àü : ", date);
+        printDate("1ì£¼ì¼ ì „ : ", date);
         
         date.add(Calendar.DATE, 1);
-        printDate("1ÀÏ ÈÄ : ", date);
+        printDate("1ì¼ í›„ : ", date);
         
         date.add(Calendar.MONTH, -6);
-        printDate("6°³¿ù Àü : ", date);
+        printDate("6ê°œì›” ì „ : ", date);
  
         date.roll(Calendar.YEAR, -1);
-        printDate("1³â Àü : ", date);
+        printDate("1ë…„ ì „ : ", date);
     }
     
     static void printDate(String message, Calendar date) {
@@ -40,8 +41,8 @@ public class CalendarTest extends TestCase {
     }
  
     static String toString(Calendar date) {
-        return date.get(Calendar.YEAR)+"³â "
-                + (date.get(Calendar.MONTH)+1) + "¿ù "
-                + date.get(Calendar.DATE) + "ÀÏ";
+        return date.get(Calendar.YEAR)+"ë…„ "
+                + (date.get(Calendar.MONTH)+1) + "ì›” "
+                + date.get(Calendar.DATE) + "ì¼";
     }
 }
