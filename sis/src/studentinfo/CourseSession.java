@@ -5,6 +5,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class CourseSession {
+	static final String NEWLINE = System.getProperty("line.separator");
+	static final String ROSTER_REPORT_HEADER = "학생 목록" + NEWLINE + "----" + NEWLINE;
+	static final String ROSTER_REPORT_FOOTER = NEWLINE + "학생 수 : ";
+
 	private String department;
 	private String number;
 	private int numberOfStudents = 0;
@@ -55,6 +59,14 @@ public class CourseSession {
 	}
 
 	public String getRosterReport() {
-		return null;
+		StringBuilder sb = new StringBuilder();
+		sb.append(ROSTER_REPORT_HEADER);
+		
+		for (Student student : students) {
+			sb.append(student.getName());
+			sb.append(NEWLINE);
+		}
+		sb.append(ROSTER_REPORT_FOOTER + students.size());
+		return sb.toString();
 	}
 }

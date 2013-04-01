@@ -60,9 +60,9 @@ public class CourseSessionTest extends TestCase {
 		
 		String rosterReport = session.getRosterReport();
 		assertEquals(
-			"학생 목록\n----\n" + 
-			"A\nB\n" + 
-			"\n학생 수 : 2", 
+			CourseSession.ROSTER_REPORT_HEADER + 
+			"A" + CourseSession.NEWLINE + "B" + CourseSession.NEWLINE +
+			CourseSession.ROSTER_REPORT_FOOTER + 2, 
 			rosterReport);
 	}
 }
