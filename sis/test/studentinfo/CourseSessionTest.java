@@ -53,4 +53,16 @@ public class CourseSessionTest extends TestCase {
 		Date endDate = createDate(year, month, date);
 		assertEquals(endDate, session.getEndDate());
 	}
+	
+	public void testRoasterReport() throws Exception {
+		session.enroll(new Student("A"));
+		session.enroll(new Student("B"));
+		
+		String rosterReport = session.getRosterReport();
+		assertEquals(
+			"학생 목록\n----\n" + 
+			"A\nB\n" + 
+			"\n학생 수 : 2", 
+			rosterReport);
+	}
 }

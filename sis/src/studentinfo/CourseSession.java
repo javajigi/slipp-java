@@ -53,4 +53,8 @@ public class CourseSession {
 		calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
 		return calendar.getTime();
 	}
+
+	public String getRosterReport() {
+		return null;
+	}
 }
