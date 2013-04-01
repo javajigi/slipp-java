@@ -1,20 +1,36 @@
 package studentinfo;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import junit.framework.TestCase;
 
 public class CourseSessionTest extends TestCase {
 	private CourseSession session;
+	private Date startDate;
 	
 	public void setUp() {
-		session = new CourseSession("ENGL", "101");
+		int year = 2013;
+		int month = 3;
+		int date = 4;
+		startDate = createDate(year, month, date);
+		session = new CourseSession("ENGL", "101", startDate);
+	}
+
+	private Date createDate(int year, int month, int date) {
+		GregorianCalendar calendar = new GregorianCalendar();
+		calendar.set(Calendar.YEAR, year);
+		calendar.set(Calendar.MONTH, month - 1);
+		calendar.set(Calendar.DAY_OF_MONTH, date);
+		return calendar.getTime();
 	}
 	
 	public void testCreate() throws Exception {
 		assertEquals("ENGL", session.getDepartment());
 		assertEquals("101", session.getNumber());
 		assertEquals(0, session.getNumberOfStudents());
+		assertEquals(startDate, session.getStartDate());
 	}
 
 	public void testEnrollStudents() throws Exception {
@@ -31,17 +47,10 @@ public class CourseSessionTest extends TestCase {
 	}
 	
 	public void testCourseDates() {
-		int year = 113;
-		int month = 2;
-		int date = 4;
-		Date startDate = new Date(year, month, date);
-		
-		CourseSession session = new CourseSession("ENGL", "101", startDate);
-		
-		year = 113;
-		month = 5;
-		date = 21;
-		Date endDate = new Date(year, month, date);
+		int year = 2013;
+		int month = 6;
+		int date = 21;
+		Date endDate = createDate(year, month, date);
 		assertEquals(endDate, session.getEndDate());
 	}
 }

@@ -1,6 +1,7 @@
 package studentinfo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class CourseSession {
@@ -11,11 +12,6 @@ public class CourseSession {
 
 	private ArrayList<Student> students = new ArrayList<Student>();
 
-	CourseSession(String department, String number) {
-		this.department = department;
-		this.number = number;
-	}
-	
 	CourseSession(String department, String number, Date startDate) {
 		this.department = department;
 		this.number = number;
@@ -43,7 +39,18 @@ public class CourseSession {
 		return students.get(index);
 	}
 	
+	Date getStartDate() {
+		return this.startDate;
+	}
+	
 	Date getEndDate() {
-		return null;
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(startDate);
+		final int sessionLength = 16;
+		final int daysInWeek = 7;
+		final int daysFromFridayToMonday = 3;
+		int numberOfDays = sessionLength * daysInWeek - daysFromFridayToMonday;
+		calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
+		return calendar.getTime();
 	}
 }
