@@ -1,8 +1,6 @@
-package studentinfo;
+package sis.studentinfo;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import junit.framework.TestCase;
 
@@ -14,18 +12,10 @@ public class CourseSessionTest extends TestCase {
 		int year = 2013;
 		int month = 3;
 		int date = 4;
-		startDate = createDate(year, month, date);
+		startDate = new DateUtil().createDate(year, month, date);
 		session = new CourseSession("ENGL", "101", startDate);
 	}
 
-	private Date createDate(int year, int month, int date) {
-		GregorianCalendar calendar = new GregorianCalendar();
-		calendar.set(Calendar.YEAR, year);
-		calendar.set(Calendar.MONTH, month - 1);
-		calendar.set(Calendar.DAY_OF_MONTH, date);
-		return calendar.getTime();
-	}
-	
 	public void testCreate() throws Exception {
 		assertEquals("ENGL", session.getDepartment());
 		assertEquals("101", session.getNumber());
@@ -50,19 +40,7 @@ public class CourseSessionTest extends TestCase {
 		int year = 2013;
 		int month = 6;
 		int date = 21;
-		Date endDate = createDate(year, month, date);
+		Date endDate = new DateUtil().createDate(year, month, date);
 		assertEquals(endDate, session.getEndDate());
-	}
-	
-	public void testRoasterReport() throws Exception {
-		session.enroll(new Student("A"));
-		session.enroll(new Student("B"));
-		
-		String rosterReport = session.getRosterReport();
-		assertEquals(
-			CourseSession.ROSTER_REPORT_HEADER + 
-			"A" + CourseSession.NEWLINE + "B" + CourseSession.NEWLINE +
-			CourseSession.ROSTER_REPORT_FOOTER + 2, 
-			rosterReport);
 	}
 }
