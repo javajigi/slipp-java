@@ -3,8 +3,11 @@ package sis.studentinfo;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class CourseSession {
+	private static int count;
+	
 	private String department;
 	private String number;
 	private Date startDate;
@@ -15,6 +18,15 @@ public class CourseSession {
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;
+		CourseSession.count = CourseSession.count + 1;
+	}
+	
+	static void resetCount() {
+		count = 0;
+	}
+	
+	static int getCount() {
+		return count;
 	}
 
 	String getDepartment() {
@@ -42,7 +54,7 @@ public class CourseSession {
 	}
 	
 	Date getEndDate() {
-		Calendar calendar = Calendar.getInstance();
+		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.setTime(startDate);
 		final int sessionLength = 16;
 		final int daysInWeek = 7;
