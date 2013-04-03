@@ -12,7 +12,7 @@ public class CourseSessionTest extends TestCase {
 	
 	public void setUp() {
 		startDate = createDate(2013, 3, 4);
-		session = new CourseSession("ENGL", "101", startDate);
+		session = CourseSession.create("ENGL", "101", startDate);
 	}
 
 	public void testCreate() throws Exception {
@@ -49,6 +49,6 @@ public class CourseSessionTest extends TestCase {
 	}
 	
 	private CourseSession createCourseSession() {
-		return new CourseSession("ENG", "101", startDate);
+		return CourseSession.create("ENG", "101", startDate);
 	}
 }

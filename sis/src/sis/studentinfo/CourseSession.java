@@ -14,13 +14,17 @@ public class CourseSession {
 
 	private ArrayList<Student> students = new ArrayList<Student>();
 
-	public CourseSession(String department, String number, Date startDate) {
+	private CourseSession(String department, String number, Date startDate) {
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;
-		CourseSession.count = CourseSession.count + 1;
+		CourseSession.incrementCount();
 	}
 	
+	private static void incrementCount() {
+		count += 1;
+	}
+
 	static void resetCount() {
 		count = 0;
 	}
@@ -62,5 +66,9 @@ public class CourseSession {
 		int numberOfDays = sessionLength * daysInWeek - daysFromFridayToMonday;
 		calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
 		return calendar.getTime();
+	}
+
+	public static CourseSession create(String department, String number, Date startDate) {
+		return new CourseSession(department, number, startDate);
 	}
 }
