@@ -3,6 +3,7 @@ package sis.studentinfo;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class CourseSession {
 	private String department;
@@ -42,7 +43,7 @@ public class CourseSession {
 	}
 	
 	Date getEndDate() {
-		Calendar calendar = Calendar.getInstance();
+		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.setTime(startDate);
 		final int sessionLength = 16;
 		final int daysInWeek = 7;
