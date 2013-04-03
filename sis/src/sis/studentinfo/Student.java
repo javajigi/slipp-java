@@ -10,4 +10,12 @@ public class Student {
 	public String getName() {
 		return name;
 	}
+
+	int getCredits() {
+		return 0;
+	}
+
+	void addCredits(int credits) {
+		
+	}
 }
