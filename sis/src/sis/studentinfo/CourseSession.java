@@ -58,4 +58,8 @@ public class CourseSession {
 		calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
 		return calendar.getTime();
 	}
+	
+	public static CourseSession create(String department, String number, Date startDate) {
+		return new CourseSession(department, number, startDate);
+	}
 }
