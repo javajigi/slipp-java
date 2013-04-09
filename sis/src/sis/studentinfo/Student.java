@@ -38,4 +38,12 @@ public class Student {
 	boolean isInState() {
 		return Student.IN_STATE.equals(state);
 	}
+
+	public double getGpa() {
+		return 0;
+	}
+
+	public void addGrade(String grade) {
+		
+	}
 }

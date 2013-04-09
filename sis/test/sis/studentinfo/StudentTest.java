@@ -3,6 +3,8 @@ package sis.studentinfo;
 import junit.framework.TestCase;
 
 public class StudentTest extends TestCase {
+	private static final double GRADE_TOLERANCE = 0.05;
+	
 	public void testCreate() {
 		final String firstStudentName = "재성";
 		Student firstStudent = new Student(firstStudentName);
@@ -41,5 +43,20 @@ public class StudentTest extends TestCase {
 		assertTrue(student.isInState());
 		student.setState("서울특별시");
 		assertFalse(student.isInState());
+	}
+	
+	public void testCalculateGpa() throws Exception {
+		Student student = new Student("a");
+		assertEquals(0.0, student.getGpa(), GRADE_TOLERANCE);
+		student.addGrade("A");
+		assertEquals(4.0, student.getGpa(), GRADE_TOLERANCE);
+		student.addGrade("B");
+		assertEquals(3.5, student.getGpa(), GRADE_TOLERANCE);
+		student.addGrade("C");
+		assertEquals(3.0, student.getGpa(), GRADE_TOLERANCE);
+		student.addGrade("D");
+		assertEquals(2.5, student.getGpa(), GRADE_TOLERANCE);
+		student.addGrade("F");
+		assertEquals(2.0, student.getGpa(), GRADE_TOLERANCE);
 	}
 }
