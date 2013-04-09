@@ -1,7 +1,7 @@
 package net.slipp.sort;
 
-public class NameSort {
-	public Name[] sort(Name[] values) {
+public class Sort<T extends SortComparable<? super T>> {
+	public T[] sort(T[] values) {
 		int offset, minimumIndex;
 		for (offset = 0; offset < values.length - 1; offset++) {
 			minimumIndex = getMinimumIndex(values, offset);
@@ -10,21 +10,21 @@ public class NameSort {
 		return values;
 	}
 
-	int getMinimumIndex(Name[] values, int offset) {
+	int getMinimumIndex(T[] values, int offset) {
 		int index = offset;
-		Name minimumValue = values[offset];
+		T minimumValue = values[offset];
 		for (int i = offset + 1; i < values.length; i++) {
-			if (values[i].getName().charAt(0) < minimumValue.getName().charAt(0)) {
+			if ( values[i].compareTo(minimumValue) ) {
 				index = i;
 				minimumValue = values[i];
 			}
 		}
-		return index;
+		return index;		
 	}
-
-	void swap(Name[] values, int source, int target) {
-		Name temp = values[source];
+	
+	void swap(T[] values, int source, int target) {
+		T temp = values[source];
 		values[source] = values[target];
-		values[target] = temp;
+		values[target] = temp;		
 	}
 }

@@ -1,10 +1,10 @@
 package net.slipp.sort;
 
-import net.slipp.sort.AgeSort;
+import net.slipp.sort.Sort;
 import junit.framework.TestCase;
 
 public class AgeSortTest extends TestCase {
-	private AgeSort sort;
+	private Sort<Age> sort;
 	private Age[] values = new Age[3];
 	
 	@Override
@@ -12,7 +12,7 @@ public class AgeSortTest extends TestCase {
 		values[0] = new Age(32);
 		values[1] = new Age(35);
 		values[2] = new Age(29);
-		sort = new AgeSort();
+		sort = new Sort<Age>();
 	}
 	
 	public void testSort() throws Exception {

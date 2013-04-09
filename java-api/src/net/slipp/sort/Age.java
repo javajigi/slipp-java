@@ -1,6 +1,6 @@
 package net.slipp.sort;
 
-public class Age {
+public class Age implements SortComparable<Age> {
 	private int age;
 
 	public Age(int age) {
@@ -9,6 +9,11 @@ public class Age {
 	
 	public int getAge() {
 		return age;
+	}
+	
+	@Override
+	public boolean compareTo(Age target) {
+		return this.age < target.age;
 	}
 
 	@Override

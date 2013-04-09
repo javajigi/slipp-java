@@ -1,6 +1,6 @@
 package net.slipp.sort;
 
-public class Name {
+public class Name implements SortComparable<Name> {
 	private String name;
 
 	public Name(String name) {
@@ -9,6 +9,11 @@ public class Name {
 	
 	public String getName() {
 		return name;
+	}
+	
+	@Override
+	public boolean compareTo(Name target) {
+		return this.name.charAt(0) < target.name.charAt(0);
 	}
 
 	@Override

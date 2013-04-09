@@ -1,10 +1,9 @@
 package net.slipp.sort;
 
-import net.slipp.sort.NameSort;
 import junit.framework.TestCase;
 
 public class NameSortTest extends TestCase {
-	private NameSort sort;
+	private Sort<Name> sort;
 	private Name[] values = new Name[3];
 	
 	@Override
@@ -12,7 +11,7 @@ public class NameSortTest extends TestCase {
 		values[0] = new Name("JaeSung");
 		values[1] = new Name("YeEun");
 		values[2] = new Name("CheolSu");
-		sort = new NameSort();
+		sort = new Sort<Name>();
 	}
 	
 	public void testSort() throws Exception {
