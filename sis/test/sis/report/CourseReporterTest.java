@@ -17,9 +17,9 @@ public class CourseReporterTest extends TestCase {
 		report.add(CourseSession.create("CHN", "313", date));
 		
 		assertEquals(
-				"KOR 110" + NEWLINE + 
+				"CHN 313" + NEWLINE +
 				"ENGL 201" + NEWLINE +
-				"CHN 313" + NEWLINE
+				"KOR 110" + NEWLINE 
 				, report.text());
 	}
 }
