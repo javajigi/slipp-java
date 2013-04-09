@@ -1,7 +1,7 @@
-package net.slipp.collection;
+package net.slipp.sort;
 
-public class IntegerSort {
-	public Integer[] sort(Integer[] values) {
+public class AgeSort {
+	public Age[] sort(Age[] values) {
 		int offset, minimumIndex;
 		for (offset = 0; offset < values.length - 1; offset++) {
 			minimumIndex = getMinimumIndex(values, offset);
@@ -10,21 +10,21 @@ public class IntegerSort {
 		return values;
 	}
 
-	int getMinimumIndex(Integer[] values, int offset) {
+	int getMinimumIndex(Age[] values, int offset) {
 		int index = offset;
-		Integer minimumValue = values[offset];
+		Age minimumValue = values[offset];
 		for (int i = offset + 1; i < values.length; i++) {
-			if (values[i] < minimumValue) {
+			if (values[i].getAge() < minimumValue.getAge()) {
 				index = i;
 				minimumValue = values[i];
 			}
 		}
-		return index;
+		return index;		
 	}
 
-	void swap(Integer[] values, int source, int target) {
-		Integer temp = values[source];
+	void swap(Age[] values, int source, int target) {
+		Age temp = values[source];
 		values[source] = values[target];
-		values[target] = temp;
+		values[target] = temp;		
 	}
 }

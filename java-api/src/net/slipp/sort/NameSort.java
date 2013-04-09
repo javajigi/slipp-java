@@ -1,7 +1,7 @@
-package net.slipp.collection;
+package net.slipp.sort;
 
-public class StringSort {
-	public String[] sort(String[] values) {
+public class NameSort {
+	public Name[] sort(Name[] values) {
 		int offset, minimumIndex;
 		for (offset = 0; offset < values.length - 1; offset++) {
 			minimumIndex = getMinimumIndex(values, offset);
@@ -10,11 +10,11 @@ public class StringSort {
 		return values;
 	}
 
-	int getMinimumIndex(String[] values, int offset) {
+	int getMinimumIndex(Name[] values, int offset) {
 		int index = offset;
-		String minimumValue = values[offset];
+		Name minimumValue = values[offset];
 		for (int i = offset + 1; i < values.length; i++) {
-			if (values[i].charAt(0) < minimumValue.charAt(0)) {
+			if (values[i].getName().charAt(0) < minimumValue.getName().charAt(0)) {
 				index = i;
 				minimumValue = values[i];
 			}
@@ -22,8 +22,8 @@ public class StringSort {
 		return index;
 	}
 
-	void swap(String[] values, int source, int target) {
-		String temp = values[source];
+	void swap(Name[] values, int source, int target) {
+		Name temp = values[source];
 		values[source] = values[target];
 		values[target] = temp;
 	}
