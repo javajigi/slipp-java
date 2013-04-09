@@ -10,7 +10,7 @@ import sis.studentinfo.Student;
 public class RosterReporterTest extends TestCase {
 	public void testRosterReport() throws Exception {
 		Date startDate = new DateUtil().createDate(2013, 03, 22);
-		CourseSession session = new CourseSession("ENGL", "200", startDate);
+		CourseSession session = CourseSession.create("ENGL", "200", startDate);
 		session.enroll(new Student("A"));
 		session.enroll(new Student("B"));
 		

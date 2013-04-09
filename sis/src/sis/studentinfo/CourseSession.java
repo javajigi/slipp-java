@@ -13,7 +13,7 @@ public class CourseSession implements Comparable<CourseSession>{
 
 	private ArrayList<Student> students = new ArrayList<Student>();
 
-	public CourseSession(String department, String number, Date startDate) {
+	private CourseSession(String department, String number, Date startDate) {
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;
@@ -64,7 +64,13 @@ public class CourseSession implements Comparable<CourseSession>{
 	}
 
 	@Override
-	public int compareTo(CourseSession o) {
-		return 0;
+	public int compareTo(CourseSession anotherSession) {
+		int compare = this.getDepartment().compareTo(anotherSession.getDepartment());
+		
+		if (compare == 0) {
+			return this.getNumber().compareTo(anotherSession.getNumber());
+		}
+		
+		return compare;
 	}
 }
