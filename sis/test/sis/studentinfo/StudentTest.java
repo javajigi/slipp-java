@@ -45,10 +45,22 @@ public class StudentTest extends TestCase {
 		assertFalse(student.isInState());
 	}
 	
-	public void testCalculateGpa() throws Exception {
-		Student student = new Student("a");
-		assertEquals(0.0, student.getGpa(), GRADE_TOLERANCE);
-		student.addGrade("A");
-		assertEquals(4.0, student.getGpa(), GRADE_TOLERANCE);
-	}
+    public void testCalculateGpa() throws Exception {
+        Student student = new Student("a");
+        assertGpa(student, 0.0);
+        student.addGrade("A");
+        assertGpa(student, 4.0);
+        student.addGrade("B");
+        assertGpa(student, 3.5);
+        student.addGrade("C");
+        assertGpa(student, 3.0);
+        student.addGrade("D");
+        assertGpa(student, 2.5);
+        student.addGrade("F");
+        assertGpa(student, 2.0);
+    }
+    
+    private void assertGpa(Student student, double expectedGpa) {
+        assertEquals(expectedGpa, student.getGpa(), GRADE_TOLERANCE);
+    }
 }
