@@ -56,11 +56,26 @@ public class StudentTest extends TestCase {
         assertGpa(student, 3.0);
         student.addGrade(Student.Grade.D);
         assertGpa(student, 2.5);
-        student.addGrade(Student.Grade.E);
+        student.addGrade(Student.Grade.F);
         assertGpa(student, 2.0);
     }
     
     private void assertGpa(Student student, double expectedGpa) {
         assertEquals(expectedGpa, student.getGpa(), GRADE_TOLERANCE);
     }
+    
+    public void testCalculateHonorStudentGpa() throws Exception {
+        assertGpa(createHonorStudent(Student.Grade.A), 5.0);
+        assertGpa(createHonorStudent(Student.Grade.B), 4.0);
+        assertGpa(createHonorStudent(Student.Grade.C), 3.0);
+        assertGpa(createHonorStudent(Student.Grade.D), 2.0);
+        assertGpa(createHonorStudent(Student.Grade.F), 0.0);
+    }
+
+	private Student createHonorStudent(Student.Grade grade) {
+		Student student = new Student("a");
+		student.setHonors();
+		student.addGrade(grade);
+		return student;
+	} 
 }

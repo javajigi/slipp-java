@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Student {
 	enum Grade {
-		A, B, C, D, E
+		A, B, C, D, F
 	};
 
 	static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
@@ -16,6 +16,8 @@ public class Student {
 	private int credits;
 
 	private String state;
+	
+	private boolean isHonors = false;
 
 	private ArrayList<Grade> grades = new ArrayList<Grade>();
 
@@ -25,6 +27,10 @@ public class Student {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+	
+	void setHonors() {
+		isHonors = true;
 	}
 
 	public String getName() {
@@ -47,7 +53,7 @@ public class Student {
 		return Student.IN_STATE.equals(state);
 	}
 
-	public double getGpa() {
+	double getGpa() {
 		if (grades.isEmpty()) {
 			return 0.0;
 		}
@@ -61,6 +67,16 @@ public class Student {
 	}
 
 	int gradePointsFor(Grade grade) {
+		int points = basicGradePointsFor(grade);
+		if(isHonors) {
+			if (points > 0) {
+				points += 1;
+			}
+		}
+		return points;
+	}
+
+	private int basicGradePointsFor(Grade grade) {
 		if (grade == Grade.A)
 			return 4;
 		else if (grade == Grade.B)
