@@ -50,13 +50,5 @@ public class StudentTest extends TestCase {
 		assertEquals(0.0, student.getGpa(), GRADE_TOLERANCE);
 		student.addGrade("A");
 		assertEquals(4.0, student.getGpa(), GRADE_TOLERANCE);
-		student.addGrade("B");
-		assertEquals(3.5, student.getGpa(), GRADE_TOLERANCE);
-		student.addGrade("C");
-		assertEquals(3.0, student.getGpa(), GRADE_TOLERANCE);
-		student.addGrade("D");
-		assertEquals(2.5, student.getGpa(), GRADE_TOLERANCE);
-		student.addGrade("F");
-		assertEquals(2.0, student.getGpa(), GRADE_TOLERANCE);
 	}
 }

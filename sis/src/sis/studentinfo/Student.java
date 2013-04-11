@@ -1,5 +1,7 @@
 package sis.studentinfo;
 
+import java.util.ArrayList;
+
 public class Student {
 	static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
 
@@ -10,6 +12,8 @@ public class Student {
 	private int credits;
 
 	private String state;
+	
+	private ArrayList<String> grades = new ArrayList<String>();
 
 	public Student(String name) {
 		this.name = name;
@@ -40,10 +44,31 @@ public class Student {
 	}
 
 	public double getGpa() {
+		if (grades.isEmpty()) {
+			return 0.0;
+		}
+		
+		double total = 0.0;
+		for (String grade : grades) {
+			total += gradePointsFor(grade);
+		}
+		
+		return total / grades.size();
+	}
+	
+	int gradePointsFor(String grade) {
+		if (grade.equals("A"))
+			return 4;
+		else if (grade.equals("B"))
+			return 3;
+		else if (grade.equals("C"))
+			return 2;
+		else if (grade.equals("D"))
+			return 1;
 		return 0;
 	}
 
 	public void addGrade(String grade) {
-		
+		grades.add(grade);
 	}
 }
