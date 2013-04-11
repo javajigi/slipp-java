@@ -2,11 +2,12 @@ package sis.report;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import sis.studentinfo.CourseSession;
 
 public class CourseReport {
-	private ArrayList<CourseSession> sessions = new ArrayList<CourseSession>();
+	private List<CourseSession> sessions = new ArrayList<CourseSession>();
 
 	public void add(CourseSession session) {
 		sessions.add(session);

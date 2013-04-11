@@ -47,6 +47,7 @@ public class StudentTest extends TestCase {
 	
     public void testCalculateGpa() throws Exception {
         Student student = new Student("a");
+        student.setGradingStrategy(new RegularGradingStrategy());
         assertGpa(student, 0.0);
         student.addGrade(Student.Grade.A);
         assertGpa(student, 4.0);
@@ -74,7 +75,7 @@ public class StudentTest extends TestCase {
 
 	private Student createHonorStudent(Student.Grade grade) {
 		Student student = new Student("a");
-		student.setHonors();
+		student.setGradingStrategy(new HonorsGradingStrategy());
 		student.addGrade(grade);
 		return student;
 	} 

@@ -1,6 +1,7 @@
 package sis.studentinfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student {
 	enum Grade {
@@ -17,22 +18,23 @@ public class Student {
 
 	private String state;
 	
-	private boolean isHonors = false;
+	private GradingStrategy gradingStrategy;
+	
+	private List<Grade> grades = new ArrayList<Grade>();
 
-	private ArrayList<Grade> grades = new ArrayList<Grade>();
 
 	public Student(String name) {
 		this.name = name;
+	}
+	
+	void setGradingStrategy(GradingStrategy gradingStrategy) {
+		this.gradingStrategy = gradingStrategy;
 	}
 
 	public void setState(String state) {
 		this.state = state;
 	}
 	
-	void setHonors() {
-		isHonors = true;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -60,32 +62,10 @@ public class Student {
 
 		double total = 0.0;
 		for (Grade grade : grades) {
-			total += gradePointsFor(grade);
+			total += gradingStrategy.gradePointsFor(grade);
 		}
 
 		return total / grades.size();
-	}
-
-	int gradePointsFor(Grade grade) {
-		int points = basicGradePointsFor(grade);
-		if(isHonors) {
-			if (points > 0) {
-				points += 1;
-			}
-		}
-		return points;
-	}
-
-	private int basicGradePointsFor(Grade grade) {
-		if (grade == Grade.A)
-			return 4;
-		else if (grade == Grade.B)
-			return 3;
-		else if (grade == Grade.C)
-			return 2;
-		else if (grade == Grade.D)
-			return 1;
-		return 0;
 	}
 
 	public void addGrade(Grade grade) {
