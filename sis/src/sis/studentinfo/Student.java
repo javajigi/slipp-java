@@ -5,7 +5,21 @@ import java.util.List;
 
 public class Student {
 	enum Grade {
-		A, B, C, D, F
+		A(4), 
+		B(3), 
+		C(2), 
+		D(1), 
+		F(0);
+		
+		private int points;
+		
+		Grade(int points) {
+			this.points = points;
+		}
+		
+		public int getPoints() {
+			return points;
+		}
 	};
 
 	static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
@@ -18,7 +32,7 @@ public class Student {
 
 	private String state;
 	
-	private GradingStrategy gradingStrategy;
+	private GradingStrategy gradingStrategy = new BasicGradingStrategy();
 	
 	private List<Grade> grades = new ArrayList<Grade>();
 

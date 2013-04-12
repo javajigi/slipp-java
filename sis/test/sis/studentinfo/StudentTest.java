@@ -47,7 +47,7 @@ public class StudentTest extends TestCase {
 	
     public void testCalculateGpa() throws Exception {
         Student student = new Student("a");
-        student.setGradingStrategy(new RegularGradingStrategy());
+        student.setGradingStrategy(new BasicGradingStrategy());
         assertGpa(student, 0.0);
         student.addGrade(Student.Grade.A);
         assertGpa(student, 4.0);
