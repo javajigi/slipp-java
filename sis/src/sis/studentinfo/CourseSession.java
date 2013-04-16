@@ -7,6 +7,8 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 public class CourseSession implements Comparable<CourseSession>{
+	private static int count;
+	
 	private String department;
 	private String number;
 	private Date startDate;
@@ -18,6 +20,18 @@ public class CourseSession implements Comparable<CourseSession>{
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;
+	}
+	
+	static private void incrementCount() {
+		++count;
+	}
+	
+	static void resetCount() {
+		count = 0;
+	}
+	
+	static int getCount() {
+		return count;
 	}
 	
 	void setNumberOfCredits(int numberOfCredits) {
@@ -64,6 +78,7 @@ public class CourseSession implements Comparable<CourseSession>{
 	}
 
 	public static CourseSession create(String department, String number, Date startDate) {
+		CourseSession.incrementCount();
 		return new CourseSession(department, number, startDate);
 	}
 

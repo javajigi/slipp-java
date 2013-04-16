@@ -12,11 +12,11 @@ public class CourseSessionTest extends TestCase {
 	
 	public void setUp() {
 		startDate = DateUtil.createDate(2013, 3, 4);
-		session = createCourseSession();
+		session = createCourseSession("ENGL", "101", startDate);
 	}
 
-	private CourseSession createCourseSession() {
-		CourseSession session = CourseSession.create("ENGL", "101", startDate);
+	private CourseSession createCourseSession(String department, String number, Date startDate) {
+		CourseSession session = CourseSession.create(department, number, startDate);
 		session.setNumberOfCredits(CREDITS);
 		return session;
 	}
@@ -46,6 +46,14 @@ public class CourseSessionTest extends TestCase {
 	public void testCourseDates() {
 		Date endDate = DateUtil.createDate(2013, 6, 21);
 		assertEquals(endDate, session.getEndDate());
+	}
+	
+	public void testCount() throws Exception {
+		CourseSession.resetCount();
+		createCourseSession("", "", new Date());
+		assertEquals(1, CourseSession.getCount());
+		createCourseSession("", "", new Date());
+		assertEquals(2, CourseSession.getCount());
 	}
 	
 	public void testComparable() throws Exception {
