@@ -2,9 +2,9 @@ package sis.summer;
 
 import java.util.Date;
 
-import sis.studentinfo.CourseSession;
+import sis.studentinfo.Session;
 
-public class SummerCourseSession extends CourseSession {
+public class SummerCourseSession extends Session {
 	protected SummerCourseSession(String department, String number, Date startDate) {
 		super(department, number, startDate);
 	}
