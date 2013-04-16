@@ -11,7 +11,7 @@ public class CourseSessionTest extends TestCase {
 	private Date startDate;
 	
 	public void setUp() {
-		startDate = new DateUtil().createDate(2013, 3, 4);
+		startDate = DateUtil.createDate(2013, 3, 4);
 		session = createCourseSession();
 	}
 
@@ -44,7 +44,7 @@ public class CourseSessionTest extends TestCase {
 	}
 	
 	public void testCourseDates() {
-		Date endDate = new DateUtil().createDate(2013, 6, 21);
+		Date endDate = DateUtil.createDate(2013, 6, 21);
 		assertEquals(endDate, session.getEndDate());
 	}
 	

@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 
 public class DateUtilTest extends TestCase {
 	public void testCreateDate() throws Exception {
-		Date date = new DateUtil().createDate(2013, 1, 1);
+		Date date = DateUtil.createDate(2013, 1, 1);
 		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.setTime(date);
 		
