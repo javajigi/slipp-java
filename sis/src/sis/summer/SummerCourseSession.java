@@ -2,13 +2,18 @@ package sis.summer;
 
 import java.util.Date;
 
-public class SummerCourseSession {
+import sis.studentinfo.CourseSession;
+
+public class SummerCourseSession extends CourseSession {
+	protected SummerCourseSession(String department, String number, Date startDate) {
+		super(department, number, startDate);
+	}
+
 	public static SummerCourseSession create(String department, String number, Date startDate) {
-		return null;
+		return new SummerCourseSession(department, number, startDate);
 	}
 
-	public Date getEndDate() {
-		return null;
+	protected int getSessionLength() {
+		return 8;
 	}
-
 }

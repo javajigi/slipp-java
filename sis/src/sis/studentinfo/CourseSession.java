@@ -45,21 +45,24 @@ public class CourseSession implements Comparable<CourseSession>{
 		return students.get(index);
 	}
 	
-	Date getStartDate() {
+	protected Date getStartDate() {
 		return this.startDate;
 	}
 	
-	Date getEndDate() {
+	protected int getSessionLength() {
+		return 16;
+	}
+	
+	public Date getEndDate() {
 		GregorianCalendar calendar = new GregorianCalendar();
-		calendar.setTime(startDate);
-		final int sessionLength = 16;
+		calendar.setTime(getStartDate());
 		final int daysInWeek = 7;
 		final int daysFromFridayToMonday = 3;
-		int numberOfDays = sessionLength * daysInWeek - daysFromFridayToMonday;
+		int numberOfDays = getSessionLength() * daysInWeek - daysFromFridayToMonday;
 		calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
 		return calendar.getTime();
 	}
-	
+
 	public static CourseSession create(String department, String number, Date startDate) {
 		return new CourseSession(department, number, startDate);
 	}
