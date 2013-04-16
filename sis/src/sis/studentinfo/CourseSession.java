@@ -14,7 +14,7 @@ public class CourseSession implements Comparable<CourseSession>{
 
 	private List<Student> students = new ArrayList<Student>();
 
-	private CourseSession(String department, String number, Date startDate) {
+	protected CourseSession(String department, String number, Date startDate) {
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;
