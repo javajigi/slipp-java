@@ -52,6 +52,14 @@ public class Student {
 	public String getName() {
 		return name;
 	}
+	
+	public String getFamilyName() {
+		return null;
+	}
+	
+	public String getPersonalName() {
+		return null;
+	}
 
 	int getCredits() {
 		return credits;

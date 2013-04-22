@@ -6,14 +6,16 @@ public class StudentTest extends TestCase {
 	private static final double GRADE_TOLERANCE = 0.05;
 	
 	public void testCreate() {
-		final String firstStudentName = "재성";
+		final String firstStudentName = "박 재성";
 		Student firstStudent = new Student(firstStudentName);
-		assertEquals(firstStudentName, firstStudent.getName());
+		assertEquals("박", firstStudent.getFamilyName());
+		assertEquals("재성", firstStudent.getPersonalName());
 		
-		final String secondStudentName = "주한";
+		final String secondStudentName = "박 주한";
 		Student secondStudent = new Student(secondStudentName);
 		assertEquals(secondStudentName, secondStudent.getName());
-		
+		assertEquals("박", firstStudent.getFamilyName());
+		assertEquals("주한", firstStudent.getPersonalName());		
 		
 		assertEquals(firstStudentName, firstStudent.getName());
 	}
