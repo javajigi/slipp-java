@@ -6,9 +6,11 @@ public class StudentTest extends TestCase {
 	private static final double GRADE_TOLERANCE = 0.05;
 	
 	public void testCreateWhenNameIsNull() {
-		Student student = new Student(null);
-		assertEquals(null, student.getFamilyName());
-		assertEquals(null, student.getPersonalName());		
+		try {
+			new Student(null);
+			fail("이름이 형식에 맞지 않아 Exception이 발생해야 한다.");
+		} catch (IllegalArgumentException e) {
+		}		
 	}
 	
 	public void testCreateWhenNameIsNotValid() {
