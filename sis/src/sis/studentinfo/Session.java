@@ -63,7 +63,20 @@ public abstract class Session implements Comparable<Session> {
 	}
 	
 	public double averageGpaForPartTimeStudents() {
-		return 0;
+		double total = 0.0;
+		int count = 0;
+		for (Student student : students) {
+			if (student.isFullTime()) {
+				continue;
+			}
+			
+			count++;
+			total += student.getGpa();
+		}
+		
+		if (count == 0) return 0.0;
+		
+		return total/count;
 	}
 
 	@Override

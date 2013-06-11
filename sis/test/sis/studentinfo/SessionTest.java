@@ -25,13 +25,13 @@ public abstract class SessionTest extends TestCase {
 	}
 
 	public void testEnrollStudents() throws Exception {
-		Student firstStudent = new Student("재성");
+		Student firstStudent = new Student("박 재성");
 		session.enroll(firstStudent);
 		assertEquals(CREDITS, firstStudent.getCredits());
 		assertEquals(1, session.getNumberOfStudents());
 		assertEquals(firstStudent, session.get(0));
 
-		Student secondStudent = new Student("주한");
+		Student secondStudent = new Student("박 주한");
 		session.enroll(secondStudent);
 		assertEquals(CREDITS, firstStudent.getCredits());
 		assertEquals(2, session.getNumberOfStudents());
@@ -55,13 +55,13 @@ public abstract class SessionTest extends TestCase {
 	
 	public void testAverageGpaForPartTimeStudents() {
 		session.enroll(createFullTimeStudent());
-		Student partTimer1 = new Student("1");
+		Student partTimer1 = new Student("a b");
 		partTimer1.addGrade(Student.Grade.A);
 		session.enroll(partTimer1);
 		
 		session.enroll(createFullTimeStudent());
 		
-		Student partTimer2 = new Student("2");
+		Student partTimer2 = new Student("c d");
 		partTimer2.addGrade(Student.Grade.B);
 		session.enroll(partTimer2);		
 		
@@ -69,7 +69,7 @@ public abstract class SessionTest extends TestCase {
 	}
 
 	private Student createFullTimeStudent() {
-		Student student = new Student("a");
+		Student student = new Student("a b");
 		student.addCredits(Student.CREDITS_REQUIRED_FOR_FULL_TIME);
 		return student;
 	}

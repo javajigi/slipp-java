@@ -14,14 +14,14 @@ public class StudentTest extends TestCase {
 		final String secondStudentName = "박 주한";
 		Student secondStudent = new Student(secondStudentName);
 		assertEquals(secondStudentName, secondStudent.getName());
-		assertEquals("박", firstStudent.getFamilyName());
-		assertEquals("주한", firstStudent.getPersonalName());		
+		assertEquals("박", secondStudent.getFamilyName());
+		assertEquals("주한", secondStudent.getPersonalName());	
 		
 		assertEquals(firstStudentName, firstStudent.getName());
 	}
 	
 	public void testStudentStatus() throws Exception {
-		Student student = new Student("a");
+		Student student = new Student("a b");
 		assertEquals(0, student.getCredits());
 		assertFalse(student.isFullTime());
 		
@@ -39,7 +39,7 @@ public class StudentTest extends TestCase {
 	}
 	
 	public void testInState() throws Exception {
-		Student student = new Student("a");
+		Student student = new Student("a b");
 		assertFalse(student.isInState());
 		student.setState(Student.IN_STATE);
 		assertTrue(student.isInState());
@@ -48,7 +48,7 @@ public class StudentTest extends TestCase {
 	}
 	
     public void testCalculateGpa() throws Exception {
-        Student student = new Student("a");
+        Student student = new Student("a b");
         student.setGradingStrategy(new BasicGradingStrategy());
         assertGpa(student, 0.0);
         student.addGrade(Student.Grade.A);
@@ -76,7 +76,7 @@ public class StudentTest extends TestCase {
     }
 
 	private Student createHonorStudent(Student.Grade grade) {
-		Student student = new Student("a");
+		Student student = new Student("a b");
 		student.setGradingStrategy(new HonorsGradingStrategy());
 		student.addGrade(grade);
 		return student;

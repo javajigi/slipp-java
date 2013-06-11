@@ -11,15 +11,15 @@ public class RosterReporterTest extends TestCase {
 	public void testRosterReport() throws Exception {
 		Date startDate = DateUtil.createDate(2013, 03, 22);
 		CourseSession session = CourseSession.create("ENGL", "200", startDate);
-		session.enroll(new Student("A"));
-		session.enroll(new Student("B"));
+		session.enroll(new Student("A b"));
+		session.enroll(new Student("B c"));
 		
 		String rosterReport = new RosterReporter(session).getReport();
 		System.out.println(rosterReport);
 		assertEquals(
 				RosterReporter.ROSTER_REPORT_HEADER + 
-				"A" + RosterReporter.NEWLINE + 
-				"B" + RosterReporter.NEWLINE +
+				"A b" + RosterReporter.NEWLINE + 
+				"B c" + RosterReporter.NEWLINE +
 				RosterReporter.ROSTER_REPORT_FOOTER + "2", 
 				rosterReport);
 	}

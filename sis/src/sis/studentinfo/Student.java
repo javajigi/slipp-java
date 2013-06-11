@@ -1,6 +1,7 @@
 package sis.studentinfo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Student {
@@ -26,7 +27,9 @@ public class Student {
 
 	static final String IN_STATE = "경기도";
 
-	private String name;
+	private String familyName;
+	
+	private String personalName;
 
 	private int credits;
 
@@ -37,10 +40,16 @@ public class Student {
 	private List<Grade> grades = new ArrayList<Grade>();
 
 
-	public Student(String name) {
-		this.name = name;
+	public Student(String fullname) {
+		List<String> names = split(fullname);
+		this.familyName = names.get(0);
+		this.personalName = names.get(1);
 	}
 	
+	private List<String> split(String fullname) {
+		return Arrays.asList(fullname.split(" "));
+	}
+
 	void setGradingStrategy(GradingStrategy gradingStrategy) {
 		this.gradingStrategy = gradingStrategy;
 	}
@@ -50,15 +59,15 @@ public class Student {
 	}
 	
 	public String getName() {
-		return name;
+		return getFamilyName() + " " + getPersonalName();
 	}
 	
 	public String getFamilyName() {
-		return null;
+		return familyName;
 	}
 	
 	public String getPersonalName() {
-		return null;
+		return personalName;
 	}
 
 	int getCredits() {
