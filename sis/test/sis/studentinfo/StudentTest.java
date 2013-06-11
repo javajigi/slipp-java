@@ -5,6 +5,20 @@ import junit.framework.TestCase;
 public class StudentTest extends TestCase {
 	private static final double GRADE_TOLERANCE = 0.05;
 	
+	public void testCreateWhenNameIsNull() {
+		Student student = new Student(null);
+		assertEquals(null, student.getFamilyName());
+		assertEquals(null, student.getPersonalName());		
+	}
+	
+	public void testCreateWhenNameIsNotValid() {
+		try {
+			new Student("A");
+			fail("이름이 형식에 맞지 않아 Exception이 발생해야 한다.");
+		} catch (IllegalArgumentException e) {
+		}
+	}
+	
 	public void testCreate() {
 		final String firstStudentName = "박 재성";
 		Student firstStudent = new Student(firstStudentName);
@@ -80,5 +94,5 @@ public class StudentTest extends TestCase {
 		student.setGradingStrategy(new HonorsGradingStrategy());
 		student.addGrade(grade);
 		return student;
-	} 
+	}
 }
