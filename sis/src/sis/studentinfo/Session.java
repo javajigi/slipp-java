@@ -61,6 +61,10 @@ public abstract class Session implements Comparable<Session> {
 		calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
 		return calendar.getTime();
 	}
+	
+	public double averageGpaForPartTimeStudents() {
+		return 0;
+	}
 
 	@Override
 	public int compareTo(Session anotherSession) {
