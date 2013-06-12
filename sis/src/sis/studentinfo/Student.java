@@ -41,7 +41,13 @@ public class Student {
 
 
 	public Student(String fullname) {
+		if (fullname == null) {
+			throw new StudentNameFormatException("이름은 null이 될 수 없습니다.");
+		}
 		List<String> names = split(fullname);
+		if (names.size() < 2) {
+			throw new StudentNameFormatException(fullname + " 이름은 형식에 맞지 않습니다.");
+		}
 		this.familyName = names.get(0);
 		this.personalName = names.get(1);
 	}

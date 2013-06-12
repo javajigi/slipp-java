@@ -53,7 +53,7 @@ public abstract class SessionTest extends TestCase {
 		assertTrue(sessionD.compareTo(sessionC) > 0);
 	}
 	
-	public void testAverageGpaForPartTimeStudents() {
+	public void testAverageGpaForPartTimeStudents() throws Exception {
 		session.enroll(createFullTimeStudent());
 		Student partTimer1 = new Student("a b");
 		partTimer1.addGrade(Student.Grade.A);
@@ -68,7 +68,7 @@ public abstract class SessionTest extends TestCase {
 		assertEquals(3.5, session.averageGpaForPartTimeStudents(), 0.05);
 	}
 
-	private Student createFullTimeStudent() {
+	private Student createFullTimeStudent() throws Exception {
 		Student student = new Student("a b");
 		student.addCredits(Student.CREDITS_REQUIRED_FOR_FULL_TIME);
 		return student;

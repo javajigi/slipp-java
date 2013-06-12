@@ -9,7 +9,8 @@ public class StudentTest extends TestCase {
 		try {
 			new Student(null);
 			fail("이름이 형식에 맞지 않아 Exception이 발생해야 한다.");
-		} catch (IllegalArgumentException e) {
+		} catch (StudentNameFormatException e) {
+			assertEquals("이름은 null이 될 수 없습니다.", e.getMessage());
 		}		
 	}
 	
@@ -17,11 +18,12 @@ public class StudentTest extends TestCase {
 		try {
 			new Student("A");
 			fail("이름이 형식에 맞지 않아 Exception이 발생해야 한다.");
-		} catch (IllegalArgumentException e) {
+		} catch (StudentNameFormatException e) {
+			assertEquals("A 이름은 형식에 맞지 않습니다.", e.getMessage());
 		}
 	}
 	
-	public void testCreate() {
+	public void testCreate() throws StudentNameFormatException {
 		final String firstStudentName = "박 재성";
 		Student firstStudent = new Student(firstStudentName);
 		assertEquals("박", firstStudent.getFamilyName());
@@ -36,7 +38,7 @@ public class StudentTest extends TestCase {
 		assertEquals(firstStudentName, firstStudent.getName());
 	}
 	
-	public void testStudentStatus() throws Exception {
+	public void testStudentStatus() throws StudentNameFormatException {
 		Student student = new Student("a b");
 		assertEquals(0, student.getCredits());
 		assertFalse(student.isFullTime());
@@ -91,7 +93,7 @@ public class StudentTest extends TestCase {
         assertGpa(createHonorStudent(Student.Grade.F), 0.0);
     }
 
-	private Student createHonorStudent(Student.Grade grade) {
+	private Student createHonorStudent(Student.Grade grade) throws Exception {
 		Student student = new Student("a b");
 		student.setGradingStrategy(new HonorsGradingStrategy());
 		student.addGrade(grade);
