@@ -5,8 +5,7 @@ public class Piece {
 	public static final String COLOR_BLACK = "black";
 	public static final String COLOR_EMPTY = "";
 	
-	public static final char SYMBOL_LOWERCASE_PAWN = 'p';
-	public static final char SYMBOL_UPPERCASE_PAWN = 'P';
+	public static final char SYMBOL_PAWN = 'p';
 	public static final char SYMBOL_EMPTY = '.';
 	
 	String color;
@@ -22,6 +21,9 @@ public class Piece {
 	}
 	
 	public char getSymbol() {
+		if (COLOR_BLACK.equals(color)) {
+			return Character.toUpperCase(SYMBOL_PAWN);
+		}
 		return symbol;
 	}
 }

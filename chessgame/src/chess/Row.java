@@ -15,13 +15,13 @@ public class Row {
 	
 	void initializeWhitePawn() {
 		for (int i = 0; i < 8; i++) {
-			row.add(new Piece(Piece.COLOR_WHITE, Piece.SYMBOL_LOWERCASE_PAWN));
+			row.add(new Piece(Piece.COLOR_WHITE, Piece.SYMBOL_PAWN));
 		}
 	}
 	
 	void initializeBlackPawn() {
 		for (int i = 0; i < 8; i++) {
-			row.add(new Piece(Piece.COLOR_BLACK, Piece.SYMBOL_UPPERCASE_PAWN));
+			row.add(new Piece(Piece.COLOR_BLACK, Piece.SYMBOL_PAWN));
 		}
 	}
 
