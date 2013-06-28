@@ -2,6 +2,7 @@ package chess;
 
 import java.util.ArrayList;
 
+import pieces.Pawn;
 import junit.framework.TestCase;
 
 public class BoardTest extends TestCase {
