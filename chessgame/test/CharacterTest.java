@@ -6,4 +6,11 @@ public class CharacterTest extends TestCase {
 		assertTrue(Character.isWhitespace('\t'));
 		assertTrue(Character.isWhitespace(' '));
 	}
+	
+	public void testIdentifier() throws Exception {
+		assertTrue(Character.isJavaIdentifierPart('_'));
+		assertTrue(Character.isJavaIdentifierPart('$'));
+		assertFalse(Character.isJavaIdentifierStart('7'));
+		assertTrue(Character.isJavaIdentifierStart('_'));
+	}
 }
