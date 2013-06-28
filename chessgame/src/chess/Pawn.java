@@ -1,3 +1,4 @@
+package chess;
 
 class Pawn {
 	static final String COLOR_WHITE = "white";

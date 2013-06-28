@@ -1,5 +1,6 @@
-import java.util.ArrayList;
+package chess;
 
+import java.util.ArrayList;
 
 class Board {
 	ArrayList<Pawn> pawns = new ArrayList<Pawn>();
