@@ -2,8 +2,8 @@ package chess;
 
 import java.util.ArrayList;
 
-import pieces.Pawn;
 import junit.framework.TestCase;
+import pieces.Pawn;
 
 public class BoardTest extends TestCase {
 	public void testCreate() throws Exception {
@@ -20,6 +20,6 @@ public class BoardTest extends TestCase {
 		assertEquals(2, board.countPawnSize());
 		pawns = board.getPawns();
 		assertTrue(pawns.contains(whitePawn));
-		assertTrue(pawns.contains(blackPawn));		
+		assertTrue(pawns.contains(blackPawn));
 	}
 }
