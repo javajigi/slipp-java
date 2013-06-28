@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import pieces.Pawn;
 
 class Board {
+	private static final String NEW_LINE = System.getProperty("line.separator");
+	
 	ArrayList<ArrayList<Pawn>> rows = new ArrayList<ArrayList<Pawn>>();
 	
 	Board() {
@@ -44,16 +46,16 @@ class Board {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 8; i > 0; i--) {
 			if (i==7) {
-				sb.append(printRow(i-1) + '\n');
+				sb.append(printRow(i-1) + NEW_LINE);
 				continue;
 			}
 			
 			if (i==2) {
-				sb.append(printRow(i-1) + '\n');
+				sb.append(printRow(i-1) + NEW_LINE);
 				continue;
 			}
 			
-			sb.append("........" + '\n');
+			sb.append("........" + NEW_LINE);
 		}
 		return sb.toString();
 	}
