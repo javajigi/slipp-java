@@ -1,6 +1,6 @@
 package pieces;
 
-public class Pawn {
+public class Piece {
 	public static final String COLOR_WHITE = "white";
 	public static final String COLOR_BLACK = "black";
 	
@@ -10,7 +10,7 @@ public class Pawn {
 	String color;
 	char symbol;
 
-	public Pawn(String color, char symbol) {
+	public Piece(String color, char symbol) {
 		this.color = color;
 		this.symbol = symbol;
 	}

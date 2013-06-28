@@ -2,13 +2,13 @@ package chess;
 
 import java.util.ArrayList;
 
-import pieces.Pawn;
+import pieces.Piece;
 
 class Board {
 	static final String NEW_LINE = System.getProperty("line.separator");
 	static final String EMPTY_ROW = "........";
 	
-	ArrayList<ArrayList<Pawn>> rows = new ArrayList<ArrayList<Pawn>>();
+	ArrayList<ArrayList<Piece>> rows = new ArrayList<ArrayList<Piece>>();
 	
 	Board() {
 		initialize();
@@ -16,17 +16,17 @@ class Board {
 
 	private void initialize() {
 		for (int i = 0; i < 8; i++) {
-			ArrayList<Pawn> row = new ArrayList<Pawn>();
+			ArrayList<Piece> row = new ArrayList<Piece>();
 			
 			if (i==1) {
 				for (int j = 0; j < 8; j++) {
-					row.add(new Pawn(Pawn.COLOR_WHITE, Pawn.SYMBOL_LOWERCASE_PAWN));
+					row.add(new Piece(Piece.COLOR_WHITE, Piece.SYMBOL_LOWERCASE_PAWN));
 				}
 			}
 			
 			if (i==6) {
 				for (int j = 0; j < 8; j++) {
-					row.add(new Pawn(Pawn.COLOR_BLACK, Pawn.SYMBOL_UPPERCASE_PAWN));
+					row.add(new Piece(Piece.COLOR_BLACK, Piece.SYMBOL_UPPERCASE_PAWN));
 				}
 			}			
 			
@@ -35,7 +35,7 @@ class Board {
 	}
 
 	String printRow(int rowIndex) {
-		ArrayList<Pawn> row = rows.get(rowIndex);
+		ArrayList<Piece> row = rows.get(rowIndex);
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < 8; i++) {
 			sb.append(row.get(i).getSymbol());
