@@ -12,28 +12,23 @@ class Board {
 	}
 
 	private void initialize() {
-		ArrayList<Pawn> firstRow = new ArrayList<Pawn>();
-		rows.add(firstRow);
-		ArrayList<Pawn> secondRow = new ArrayList<Pawn>();
 		for (int i = 0; i < 8; i++) {
-			secondRow.add(new Pawn(Pawn.COLOR_WHITE, Pawn.SYMBOL_LOWERCASE_PAWN));
+			ArrayList<Pawn> row = new ArrayList<Pawn>();
+			
+			if (i==1) {
+				for (int j = 0; j < 8; j++) {
+					row.add(new Pawn(Pawn.COLOR_WHITE, Pawn.SYMBOL_LOWERCASE_PAWN));
+				}
+			}
+			
+			if (i==6) {
+				for (int j = 0; j < 8; j++) {
+					row.add(new Pawn(Pawn.COLOR_BLACK, Pawn.SYMBOL_UPPERCASE_PAWN));
+				}
+			}			
+			
+			rows.add(row);
 		}
-		rows.add(secondRow);
-		ArrayList<Pawn> thirdRow = new ArrayList<Pawn>();
-		rows.add(thirdRow);
-		ArrayList<Pawn> fourthRow = new ArrayList<Pawn>();
-		rows.add(fourthRow);
-		ArrayList<Pawn> fifthRow = new ArrayList<Pawn>();
-		rows.add(fifthRow);
-		ArrayList<Pawn> sixthRow = new ArrayList<Pawn>();
-		rows.add(sixthRow);
-		ArrayList<Pawn> seventhRow = new ArrayList<Pawn>();
-		for (int i = 0; i < 8; i++) {
-			seventhRow.add(new Pawn(Pawn.COLOR_BLACK, Pawn.SYMBOL_UPPERCASE_PAWN));
-		}
-		rows.add(seventhRow);
-		ArrayList<Pawn> eighthRow = new ArrayList<Pawn>();
-		rows.add(eighthRow);
 	}
 
 	String printRow(int rowIndex) {
