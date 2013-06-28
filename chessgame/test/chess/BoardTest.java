@@ -7,7 +7,7 @@ import pieces.Pawn;
 
 public class BoardTest extends TestCase {
 	public void testCreate() throws Exception {
-		Pawn whitePawn = new Pawn(Pawn.COLOR_WHITE);
+		Pawn whitePawn = new Pawn(Pawn.COLOR_WHITE, 'p');
 		
 		Board board = new Board();
 		board.addPawn(whitePawn);
@@ -15,7 +15,7 @@ public class BoardTest extends TestCase {
 		ArrayList<Pawn> pawns = board.getPawns();
 		assertTrue(pawns.contains(whitePawn));
 		
-		Pawn blackPawn = new Pawn(Pawn.COLOR_BLACK);
+		Pawn blackPawn = new Pawn(Pawn.COLOR_BLACK, 'P');
 		board.addPawn(blackPawn);
 		assertEquals(2, board.countPawnSize());
 		pawns = board.getPawns();
