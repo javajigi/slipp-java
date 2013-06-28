@@ -19,7 +19,7 @@ public class Pawn {
 		return this.color;
 	}
 	
-	char getSymbol() {
+	public char getSymbol() {
 		return symbol;
 	}
 }
