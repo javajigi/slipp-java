@@ -42,8 +42,18 @@ class Board {
 
 	String print() {
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < 8; i++) {
-			sb.append(printRow(i));
+		for (int i = 8; i > 0; i--) {
+			if (i==7) {
+				sb.append(printRow(i-1) + '\n');
+				continue;
+			}
+			
+			if (i==2) {
+				sb.append(printRow(i-1) + '\n');
+				continue;
+			}
+			
+			sb.append("........" + '\n');
 		}
 		return sb.toString();
 	}
