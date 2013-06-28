@@ -11,6 +11,16 @@ public class BoardTest extends TestCase {
 	
 	public void testPrint() throws Exception {
 		Board board = new Board();
+		String expected = 
+			Board.EMPTY_ROW + Board.NEW_LINE + 
+			"PPPPPPPP" + Board.NEW_LINE +
+			Board.EMPTY_ROW + Board.NEW_LINE +
+			Board.EMPTY_ROW + Board.NEW_LINE +
+			Board.EMPTY_ROW + Board.NEW_LINE +
+			Board.EMPTY_ROW + Board.NEW_LINE +
+			"pppppppp" + Board.NEW_LINE +
+			Board.EMPTY_ROW + Board.NEW_LINE;
+		assertEquals(expected, board.print());
 		System.out.println(board.print());
 	}
 }

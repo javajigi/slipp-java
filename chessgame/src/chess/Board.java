@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import pieces.Pawn;
 
 class Board {
-	private static final String NEW_LINE = System.getProperty("line.separator");
+	static final String NEW_LINE = System.getProperty("line.separator");
+	static final String EMPTY_ROW = "........";
 	
 	ArrayList<ArrayList<Pawn>> rows = new ArrayList<ArrayList<Pawn>>();
 	
@@ -55,7 +56,7 @@ class Board {
 				continue;
 			}
 			
-			sb.append("........" + NEW_LINE);
+			sb.append(EMPTY_ROW + NEW_LINE);
 		}
 		return sb.toString();
 	}
