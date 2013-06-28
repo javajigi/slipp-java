@@ -2,7 +2,10 @@ import junit.framework.TestCase;
 
 public class PawnTest extends TestCase {
 	public void testCreate() {
-		Pawn pawn = new Pawn();
-		assertEquals("white", pawn.getColor());
+		Pawn whitePawn = new Pawn("white");
+		assertEquals("white", whitePawn.getColor());
+		
+		Pawn blackPawn = new Pawn("black");
+		assertEquals("black", blackPawn.getColor());
 	}
 }

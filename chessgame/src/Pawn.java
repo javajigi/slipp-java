@@ -1,8 +1,13 @@
 
 class Pawn {
+	String color;
+
+	Pawn(String color) {
+		this.color = color;
+	}
 
 	String getColor() {
-		return "white";
+		return this.color;
 	}
 
 }
