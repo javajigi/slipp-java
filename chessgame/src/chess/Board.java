@@ -39,4 +39,12 @@ class Board {
 		}
 		return sb.toString();
 	}
+
+	String print() {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < 8; i++) {
+			sb.append(printRow(i));
+		}
+		return sb.toString();
+	}
 }
