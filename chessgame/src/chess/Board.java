@@ -9,7 +9,7 @@ import pieces.Piece.Type;
 class Board {
 	static final String NEW_LINE = System.getProperty("line.separator");
 	
-	ArrayList<Row> rows = new ArrayList<Row>();
+	ArrayList<Rank> ranks = new ArrayList<Rank>();
 	
 	Board() {
 		initialize();
@@ -18,33 +18,33 @@ class Board {
 	private void initialize() {
 		Piece.resetCountPieces();
 		for (int i = 0; i < 8; i++) {
-			Row row = new Row();
+			Rank rank = new Rank();
 			if (i==0) {
-				row.initializeWhiteExceptPawn();
+				rank.initializeWhiteExceptPawn();
 			} else if (i==1) {
-				row.initializeWhitePawn();
+				rank.initializeWhitePawn();
 			} else if (i==6) {		
-				row.initializeBlackPawn();
+				rank.initializeBlackPawn();
 			} else if (i==7) {
-				row.initializeBlackExceptPawn();
+				rank.initializeBlackExceptPawn();
 			} else {
-				row.initializeEmpty();
+				rank.initializeEmpty();
 			}
-			rows.add(row);
+			ranks.add(rank);
 		}
 	}
 
-	String printRow(int rowIndex) {
-		Row row = rows.get(rowIndex);
+	String printRank(int rankIndex) {
+		Rank rank = ranks.get(rankIndex);
 		StringBuilder sb = new StringBuilder();
-		sb.append(row.print());
+		sb.append(rank.print());
 		return sb.toString();
 	}
 
 	String print() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 8; i > 0; i--) {
-			sb.append(printRow(i-1) + NEW_LINE);
+			sb.append(printRank(i-1) + NEW_LINE);
 		}
 		return sb.toString();
 	}
@@ -52,8 +52,8 @@ class Board {
 	int countPiecesByColorAndType(Color color, Type type) {
 		int count = 0;
 		for (int i = 0; i < 8; i++) {
-			Row row = rows.get(i);
-			count += row.countPiecesByColorAndType(color, type);
+			Rank rank = ranks.get(i);
+			count += rank.countPiecesByColorAndType(color, type);
 		}
 		return count;
 	}

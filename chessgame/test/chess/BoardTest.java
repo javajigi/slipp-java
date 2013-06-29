@@ -1,14 +1,14 @@
 package chess;
 
-import static pieces.Piece.Color.*;
-import static pieces.Piece.Type.*;
-
-import pieces.Piece;
+import static pieces.Piece.Color.BLACK;
+import static pieces.Piece.Color.WHITE;
+import static pieces.Piece.Type.BISHOP;
+import static pieces.Piece.Type.KING;
+import static pieces.Piece.Type.PAWN;
 import junit.framework.TestCase;
+import pieces.Piece;
 
 public class BoardTest extends TestCase {
-	static final String EMPTY_ROW = "........";
-	
 	private Board board;
 	
 	@Override
@@ -18,26 +18,26 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testCreate() throws Exception {
-		assertEquals(RowTest.WHITE_PAWN_ROW, board.printRow(1));
-		assertEquals(RowTest.BLACK_PAWN_ROW, board.printRow(6));
+		assertEquals(RankTest.WHITE_PAWN_RANK, board.printRank(1));
+		assertEquals(RankTest.BLACK_PAWN_RANK, board.printRank(6));
 	}
 	
 	public void testPrint() throws Exception {
 		String expected = 
-			RowTest.BLACK_EXCEPT_PAWN_ROW + Board.NEW_LINE +
-			RowTest.BLACK_PAWN_ROW + Board.NEW_LINE +
-			createEmptyRow() + 
-			createEmptyRow() + 
-			createEmptyRow() + 
-			createEmptyRow() +
-			RowTest.WHITE_PAWN_ROW + Board.NEW_LINE +
-			RowTest.WHITE_EXCEPT_PAWN_ROW + Board.NEW_LINE;
+			RankTest.BLACK_EXCEPT_PAWN_RANK + Board.NEW_LINE +
+			RankTest.BLACK_PAWN_RANK + Board.NEW_LINE +
+			createEmptyRank() + 
+			createEmptyRank() + 
+			createEmptyRank() + 
+			createEmptyRank() +
+			RankTest.WHITE_PAWN_RANK + Board.NEW_LINE +
+			RankTest.WHITE_EXCEPT_PAWN_RANK + Board.NEW_LINE;
 		assertEquals(expected, board.print());
 		System.out.println(board.print());
 	}
 	
-	private String createEmptyRow() {
-		return EMPTY_ROW + Board.NEW_LINE;
+	private String createEmptyRank() {
+		return RankTest.EMPTY_RANK + Board.NEW_LINE;
 	}
 	
 	public void testCountPieces() throws Exception {
