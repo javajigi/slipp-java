@@ -1,5 +1,8 @@
 package chess;
 
+import static pieces.Piece.Color.*;
+import static pieces.Piece.Symbol.*;
+
 import java.util.ArrayList;
 
 import pieces.Piece;
@@ -9,43 +12,43 @@ public class Row {
 
 	void initializeEmpty() {
 		for (int i = 0; i < 8; i++) {
-			row.add(Piece.create(Piece.Color.EMPTY, Piece.Symbol.EMPTY));
+			row.add(Piece.create(NOCOLOR, EMPTY));
 		}
 	}
 	
 	void initializeWhitePawn() {
 		for (int i = 0; i < 8; i++) {
-			row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.PAWN));
+			row.add(Piece.create(WHITE, PAWN));
 		}
 	}
 	
 	void initializeBlackPawn() {
 		for (int i = 0; i < 8; i++) {
-			row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.PAWN));
+			row.add(Piece.create(BLACK, PAWN));
 		}
 	}
 	
 	void initializeWhiteExceptPawn() {
-		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.ROOK));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.KNIGHT));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.BISHOP));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.QUEEN));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.KING));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.BISHOP));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.KNIGHT));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.ROOK));
+		row.add(Piece.create(WHITE, ROOK));
+		row.add(Piece.create(WHITE, KNIGHT));
+		row.add(Piece.create(WHITE, BISHOP));
+		row.add(Piece.create(WHITE, QUEEN));
+		row.add(Piece.create(WHITE, KING));
+		row.add(Piece.create(WHITE, BISHOP));
+		row.add(Piece.create(WHITE, KNIGHT));
+		row.add(Piece.create(WHITE, ROOK));
 	}
 	
 
 	void initializeBlackExceptPawn() {
-		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.ROOK));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.KNIGHT));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.BISHOP));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.QUEEN));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.KING));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.BISHOP));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.KNIGHT));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.ROOK));		
+		row.add(Piece.create(BLACK, ROOK));
+		row.add(Piece.create(BLACK, KNIGHT));
+		row.add(Piece.create(BLACK, BISHOP));
+		row.add(Piece.create(BLACK, QUEEN));
+		row.add(Piece.create(BLACK, KING));
+		row.add(Piece.create(BLACK, BISHOP));
+		row.add(Piece.create(BLACK, KNIGHT));
+		row.add(Piece.create(BLACK, ROOK));		
 	}
 
 	String print() {

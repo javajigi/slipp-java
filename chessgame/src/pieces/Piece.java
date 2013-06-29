@@ -4,7 +4,7 @@ public class Piece {
 	public enum Color {
 		WHITE,
 		BLACK,
-		EMPTY;
+		NOCOLOR;
 	}
 	
 	public enum Symbol {
