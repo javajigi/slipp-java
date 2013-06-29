@@ -8,10 +8,10 @@ public class Piece {
 	public static final char SYMBOL_PAWN = 'p';
 	public static final char SYMBOL_EMPTY = '.';
 	
-	String color;
-	char symbol;
+	private String color;
+	private char symbol;
 
-	public Piece(String color, char symbol) {
+	private Piece(String color, char symbol) {
 		this.color = color;
 		this.symbol = symbol;
 	}
@@ -25,5 +25,9 @@ public class Piece {
 			return Character.toUpperCase(SYMBOL_PAWN);
 		}
 		return symbol;
+	}
+
+	public static Piece create(String color, char symbol) {
+		return new Piece(color, symbol);
 	}
 }
