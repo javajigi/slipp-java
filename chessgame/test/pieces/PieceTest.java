@@ -24,4 +24,14 @@ public class PieceTest extends TestCase {
 		Piece.create(Piece.COLOR_BLACK, Piece.SYMBOL_PAWN);
 		assertEquals(1, Piece.countBlackPieces());
 	}
+	
+    public void testIsWhite() throws Exception {
+        Piece whitePawn = Piece.create(Piece.COLOR_WHITE, Piece.SYMBOL_PAWN);
+        assertTrue(whitePawn.isWhite());
+    }
+    
+    public void testIsBlack() throws Exception {
+        Piece blackPawn = Piece.create(Piece.COLOR_BLACK, Piece.SYMBOL_PAWN);
+        assertTrue(blackPawn.isBlack());
+    }
 }

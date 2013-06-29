@@ -56,4 +56,20 @@ public class Piece {
 		countWhitePieces = 0;
 		countBlackPieces = 0;
 	}
+	
+    boolean isWhite() {
+        if (COLOR_WHITE.equals(color)) {
+            return true;
+        }
+        
+        return false;
+    }
+
+    boolean isBlack() {
+        if (COLOR_BLACK.equals(color)) {
+            return true;
+        }
+        
+        return false;
+    }
 }
