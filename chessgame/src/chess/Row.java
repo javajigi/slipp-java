@@ -12,19 +12,19 @@ public class Row {
 
 	void initializeEmpty() {
 		for (int i = 0; i < 8; i++) {
-			row.add(Piece.create(NOCOLOR, EMPTY));
+			row.add(Piece.createEmpty());
 		}
 	}
 	
 	void initializeWhitePawn() {
 		for (int i = 0; i < 8; i++) {
-			row.add(Piece.create(WHITE, PAWN));
+			row.add(Piece.createWhitePawn());
 		}
 	}
 	
 	void initializeBlackPawn() {
 		for (int i = 0; i < 8; i++) {
-			row.add(Piece.create(BLACK, PAWN));
+			row.add(Piece.createBlackPawn());
 		}
 	}
 	

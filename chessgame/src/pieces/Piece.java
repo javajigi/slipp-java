@@ -49,16 +49,6 @@ public class Piece {
 		return symbol.getSymbol();
 	}
 	
-	public static Piece create(Color color, Symbol symbol) {
-		Piece piece = new Piece(color, symbol);
-		if (piece.isWhite()) {
-			countWhitePieces++;
-		} else if (piece.isBlack()) {
-			countBlackPieces++;
-		}
-		return piece;
-	}
-
 	public static int countWhitePieces() {
 		return countWhitePieces;
 	}
@@ -87,4 +77,28 @@ public class Piece {
         
         return false;
     }
+    
+	public static Piece create(Color color, Symbol symbol) {
+		Piece piece = new Piece(color, symbol);
+		if (piece.isWhite()) {
+			countWhitePieces++;
+		} else if (piece.isBlack()) {
+			countBlackPieces++;
+		}
+		return piece;
+	}
+
+	public static Piece createWhitePawn() {
+		countWhitePieces++;
+		return new Piece(Color.WHITE, Symbol.PAWN);
+	}
+
+	public static Piece createBlackPawn() {
+		countBlackPieces++;
+		return new Piece(Color.BLACK, Symbol.PAWN);
+	}
+
+	public static Piece createEmpty() {
+		return new Piece(Color.NOCOLOR, Symbol.EMPTY);
+	}
 }
