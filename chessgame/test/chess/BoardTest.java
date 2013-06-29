@@ -14,15 +14,19 @@ public class BoardTest extends TestCase {
 	public void testPrint() throws Exception {
 		Board board = new Board();
 		String expected = 
-			EMPTY_ROW + Board.NEW_LINE + 
+			createEmptyRow() + 
 			"PPPPPPPP" + Board.NEW_LINE +
-			EMPTY_ROW + Board.NEW_LINE +
-			EMPTY_ROW + Board.NEW_LINE +
-			EMPTY_ROW + Board.NEW_LINE +
-			EMPTY_ROW + Board.NEW_LINE +
+			createEmptyRow() + 
+			createEmptyRow() + 
+			createEmptyRow() + 
+			createEmptyRow() +
 			"pppppppp" + Board.NEW_LINE +
-			EMPTY_ROW + Board.NEW_LINE;
+			createEmptyRow();
 		assertEquals(expected, board.print());
 		System.out.println(board.print());
+	}
+	
+	private String createEmptyRow() {
+		return EMPTY_ROW + Board.NEW_LINE;
 	}
 }
