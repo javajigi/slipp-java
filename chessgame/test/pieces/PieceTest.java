@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 public class PieceTest extends TestCase {
 	public void testCreate() {
 		verifyCreation(Piece.createWhitePawn(), Piece.createBlackPawn(), PAWN);
+		verifyCreation(Piece.createWhiteRook(), Piece.createBlackRook(), ROOK);
 	}
 	
 	private void verifyCreation(Piece whitePiece, Piece blackPiece, Piece.Type type) {

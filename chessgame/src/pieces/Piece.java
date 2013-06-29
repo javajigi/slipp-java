@@ -88,17 +88,33 @@ public class Piece {
 		return piece;
 	}
 
-	public static Piece createWhitePawn() {
+	public static Piece createEmpty() {
+		return new Piece(Color.NOCOLOR, Type.EMPTY);
+	}
+	
+	private static Piece createWhite(Type type) {
 		countWhitePieces++;
-		return new Piece(Color.WHITE, Type.PAWN);
+		return new Piece(Color.WHITE, type);
+	}
+
+	private static Piece createBlack(Type type) {
+		countBlackPieces++;
+		return new Piece(Color.BLACK, type);
+	}
+	
+	public static Piece createWhitePawn() {
+		return createWhite(Type.PAWN);
 	}
 
 	public static Piece createBlackPawn() {
-		countBlackPieces++;
-		return new Piece(Color.BLACK, Type.PAWN);
+		return createBlack(Type.PAWN);
 	}
 
-	public static Piece createEmpty() {
-		return new Piece(Color.NOCOLOR, Type.EMPTY);
+	public static Piece createWhiteRook() {
+		return createWhite(Type.ROOK);
+	}
+
+	public static Piece createBlackRook() {
+		return createBlack(Type.ROOK);
 	}
 }
