@@ -4,6 +4,8 @@ import junit.framework.TestCase;
 
 public class RowTest extends TestCase {
 	static final String EMPTY_ROW = "........";
+	static final String WHITE_EXCEPT_PAWN_ROW = "rnbqkbnr";
+	static final String BLACK_EXCEPT_PAWN_ROW = "RNBQKBNR";
 	static final String WHITE_PAWN_ROW = "pppppppp";
 	static final String BLACK_PAWN_ROW = "PPPPPPPP";
 	
@@ -29,12 +31,12 @@ public class RowTest extends TestCase {
 	public void testInitializeWhiteExceptPawn() throws Exception {
 		Row row = new Row();
 		row.initializeWhiteExceptPawn();
-		assertEquals("rnbqkbnr", row.print());
+		assertEquals(WHITE_EXCEPT_PAWN_ROW, row.print());
 	}
 	
 	public void testInitializeBlackExceptPawn() throws Exception {
 		Row row = new Row();
 		row.initializeBlackExceptPawn();
-		assertEquals("RNBQKBNR", row.print());
+		assertEquals(BLACK_EXCEPT_PAWN_ROW, row.print());
 	}
 }

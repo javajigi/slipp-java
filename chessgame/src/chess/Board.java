@@ -14,10 +14,14 @@ class Board {
 	private void initialize() {
 		for (int i = 0; i < 8; i++) {
 			Row row = new Row();
-			if (i==1) {
+			if (i==0) {
+				row.initializeWhiteExceptPawn();
+			} else if (i==1) {
 				row.initializeWhitePawn();
 			} else if (i==6) {		
 				row.initializeBlackPawn();
+			} else if (i==7) {
+				row.initializeBlackExceptPawn();
 			} else {
 				row.initializeEmpty();
 			}
