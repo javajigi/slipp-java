@@ -9,6 +9,13 @@ public class PieceTest extends TestCase {
 	public void testCreate() {
 		verifyCreation(Piece.createWhitePawn(), Piece.createBlackPawn(), PAWN);
 		verifyCreation(Piece.createWhiteRook(), Piece.createBlackRook(), ROOK);
+		verifyCreation(Piece.createWhiteKnight(), Piece.createBlackKnight(), KNIGHT);
+		verifyCreation(Piece.createWhiteBishop(), Piece.createBlackBishop(), BISHOP);
+		verifyCreation(Piece.createWhiteQueen(), Piece.createBlackQueen(), QUEEN);
+		verifyCreation(Piece.createWhiteKing(), Piece.createBlackKing(), KING);
+		Piece piece = Piece.noPiece();
+		assertEquals(NOCOLOR, piece.getColor());
+		assertEquals(EMPTY.getSymbol(), piece.getSymbol());
 	}
 	
 	private void verifyCreation(Piece whitePiece, Piece blackPiece, Piece.Type type) {

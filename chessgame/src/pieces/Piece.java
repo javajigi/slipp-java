@@ -88,7 +88,7 @@ public class Piece {
 		return piece;
 	}
 
-	public static Piece createEmpty() {
+	public static Piece noPiece() {
 		return new Piece(Color.NOCOLOR, Type.EMPTY);
 	}
 	
@@ -116,5 +116,37 @@ public class Piece {
 
 	public static Piece createBlackRook() {
 		return createBlack(Type.ROOK);
+	}
+
+	public static Piece createWhiteKnight() {
+		return createWhite(Type.KNIGHT);
+	}
+
+	public static Piece createBlackKnight() {
+		return createBlack(Type.KNIGHT);
+	}
+
+	public static Piece createWhiteBishop() {
+		return createWhite(Type.BISHOP);
+	}
+
+	public static Piece createBlackBishop() {
+		return createBlack(Type.BISHOP);
+	}
+
+	public static Piece createWhiteQueen() {
+		return createWhite(Type.QUEEN);
+	}
+
+	public static Piece createBlackQueen() {
+		return createBlack(Type.QUEEN);
+	}
+
+	public static Piece createWhiteKing() {
+		return createWhite(Type.KING);
+	}
+	
+	public static Piece createBlackKing() {
+		return createBlack(Type.KING);
 	}
 }

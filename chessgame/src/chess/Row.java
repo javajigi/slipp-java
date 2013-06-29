@@ -12,7 +12,7 @@ public class Row {
 
 	void initializeEmpty() {
 		for (int i = 0; i < 8; i++) {
-			row.add(Piece.createEmpty());
+			row.add(Piece.noPiece());
 		}
 	}
 	
