@@ -13,6 +13,9 @@ public class Piece {
 	public static final char SYMBOL_KING = 'k';
 	public static final char SYMBOL_EMPTY = '.';
 	
+	private static int countWhitePieces;
+	private static int countBlackPieces;
+	
 	private String color;
 	private char symbol;
 
@@ -33,6 +36,19 @@ public class Piece {
 	}
 
 	public static Piece create(String color, char symbol) {
+		if (COLOR_WHITE.equals(color)) {
+			countWhitePieces++;
+		} else if (COLOR_BLACK.equals(color)){
+			countBlackPieces++;
+		}
 		return new Piece(color, symbol);
+	}
+
+	public static int countWhitePieces() {
+		return countWhitePieces;
+	}
+
+	public static int countBlackPieces() {
+		return countBlackPieces;
 	}
 }

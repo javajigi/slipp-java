@@ -1,18 +1,24 @@
 package chess;
 
+import pieces.Piece;
 import junit.framework.TestCase;
 
 public class BoardTest extends TestCase {
 	static final String EMPTY_ROW = "........";
 	
+	private Board board;
+	
+	@Override
+	protected void setUp() throws Exception {
+		board = new Board();
+	}
+	
 	public void testCreate() throws Exception {
-		Board board = new Board();
 		assertEquals(RowTest.WHITE_PAWN_ROW, board.printRow(1));
 		assertEquals(RowTest.BLACK_PAWN_ROW, board.printRow(6));
 	}
 	
 	public void testPrint() throws Exception {
-		Board board = new Board();
 		String expected = 
 			RowTest.BLACK_EXCEPT_PAWN_ROW + Board.NEW_LINE +
 			RowTest.BLACK_PAWN_ROW + Board.NEW_LINE +
@@ -28,5 +34,10 @@ public class BoardTest extends TestCase {
 	
 	private String createEmptyRow() {
 		return EMPTY_ROW + Board.NEW_LINE;
+	}
+	
+	public void testCountPieces() throws Exception {
+		assertEquals(16, Piece.countWhitePieces());
+		assertEquals(16, Piece.countBlackPieces());
 	}
 }
