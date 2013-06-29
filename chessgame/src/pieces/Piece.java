@@ -7,7 +7,7 @@ public class Piece {
 		NOCOLOR;
 	}
 	
-	public enum Symbol {
+	public enum Type {
 		PAWN('p'),
 		ROOK('r'),
 		KNIGHT('n'),
@@ -18,7 +18,7 @@ public class Piece {
 		
 		private char symbol;
 		
-		private Symbol(char symbol) {
+		private Type(char symbol) {
 			this.symbol = symbol;
 		}
 		
@@ -31,11 +31,11 @@ public class Piece {
 	private static int countBlackPieces;
 	
 	private Color color;
-	private Symbol symbol;
+	private Type type;
 	
-	private Piece(Color color, Symbol symbol) {
+	private Piece(Color color, Type type) {
 		this.color = color;
-		this.symbol = symbol;
+		this.type = type;
 	}
 
 	Color getColor() {
@@ -44,9 +44,9 @@ public class Piece {
 	
 	public char getSymbol() {
 		if (isBlack()) {
-			return Character.toUpperCase(symbol.getSymbol());
+			return Character.toUpperCase(type.getSymbol());
 		}
-		return symbol.getSymbol();
+		return type.getSymbol();
 	}
 	
 	public static int countWhitePieces() {
@@ -78,7 +78,7 @@ public class Piece {
         return false;
     }
     
-	public static Piece create(Color color, Symbol symbol) {
+	public static Piece create(Color color, Type symbol) {
 		Piece piece = new Piece(color, symbol);
 		if (piece.isWhite()) {
 			countWhitePieces++;
@@ -90,15 +90,15 @@ public class Piece {
 
 	public static Piece createWhitePawn() {
 		countWhitePieces++;
-		return new Piece(Color.WHITE, Symbol.PAWN);
+		return new Piece(Color.WHITE, Type.PAWN);
 	}
 
 	public static Piece createBlackPawn() {
 		countBlackPieces++;
-		return new Piece(Color.BLACK, Symbol.PAWN);
+		return new Piece(Color.BLACK, Type.PAWN);
 	}
 
 	public static Piece createEmpty() {
-		return new Piece(Color.NOCOLOR, Symbol.EMPTY);
+		return new Piece(Color.NOCOLOR, Type.EMPTY);
 	}
 }

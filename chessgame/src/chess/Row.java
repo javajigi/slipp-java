@@ -1,7 +1,7 @@
 package chess;
 
 import static pieces.Piece.Color.*;
-import static pieces.Piece.Symbol.*;
+import static pieces.Piece.Type.*;
 
 import java.util.ArrayList;
 

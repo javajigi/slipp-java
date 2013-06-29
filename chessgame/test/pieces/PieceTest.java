@@ -1,19 +1,20 @@
 package pieces;
 
 import static pieces.Piece.Color.*;
-import static pieces.Piece.Symbol.*;
+import static pieces.Piece.Type.*;
 
 import junit.framework.TestCase;
 
 public class PieceTest extends TestCase {
 	public void testCreate() {
-		Piece whitePawn = Piece.createWhitePawn(); 
-		assertEquals(WHITE, whitePawn.getColor());
-		assertEquals(PAWN.getSymbol(), whitePawn.getSymbol());
-
-		Piece blackPawn = Piece.createBlackPawn();
-		assertEquals(BLACK, blackPawn.getColor());
-		assertEquals(Character.toUpperCase(PAWN.getSymbol()), blackPawn.getSymbol());
+		verifyCreation(Piece.createWhitePawn(), Piece.createBlackPawn(), PAWN);
+	}
+	
+	private void verifyCreation(Piece whitePiece, Piece blackPiece, Piece.Type type) {
+		assertEquals(WHITE, whitePiece.getColor());
+		assertEquals(type.getSymbol(), whitePiece.getSymbol());
+		assertEquals(BLACK, blackPiece.getColor());
+		assertEquals(Character.toUpperCase(type.getSymbol()), blackPiece.getSymbol());
 	}
 	
 	public void testCountWhitePieces() throws Exception {
