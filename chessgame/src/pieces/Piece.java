@@ -1,9 +1,11 @@
 package pieces;
 
 public class Piece {
-	public static final String COLOR_WHITE = "white";
-	public static final String COLOR_BLACK = "black";
-	public static final String COLOR_EMPTY = "";
+	public enum Color {
+		WHITE,
+		BLACK,
+		EMPTY;
+	}
 	
 	public static final char SYMBOL_PAWN = 'p';
 	public static final char SYMBOL_ROOK = 'r';
@@ -16,26 +18,26 @@ public class Piece {
 	private static int countWhitePieces;
 	private static int countBlackPieces;
 	
-	private String color;
+	private Color color;
 	private char symbol;
-
-	private Piece(String color, char symbol) {
+	
+	private Piece(Color color, char symbol) {
 		this.color = color;
 		this.symbol = symbol;
 	}
 
-	String getColor() {
+	Color getColor() {
 		return this.color;
 	}
 	
 	public char getSymbol() {
-		if (COLOR_BLACK.equals(color)) {
+		if (isBlack()) {
 			return Character.toUpperCase(this.symbol);
 		}
 		return symbol;
 	}
 
-	public static Piece create(String color, char symbol) {
+	public static Piece create(Color color, char symbol) {
 		Piece piece = new Piece(color, symbol);
 		if (piece.isWhite()) {
 			countWhitePieces++;
@@ -59,7 +61,7 @@ public class Piece {
 	}
 	
     boolean isWhite() {
-        if (COLOR_WHITE.equals(color)) {
+        if (Color.WHITE == color) {
             return true;
         }
         
@@ -67,7 +69,7 @@ public class Piece {
     }
 
     boolean isBlack() {
-        if (COLOR_BLACK.equals(color)) {
+        if (Color.BLACK == color) {
             return true;
         }
         
