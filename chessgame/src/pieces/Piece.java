@@ -36,12 +36,13 @@ public class Piece {
 	}
 
 	public static Piece create(String color, char symbol) {
-		if (COLOR_WHITE.equals(color)) {
+		Piece piece = new Piece(color, symbol);
+		if (piece.isWhite()) {
 			countWhitePieces++;
-		} else if (COLOR_BLACK.equals(color)){
+		} else if (piece.isBlack()) {
 			countBlackPieces++;
 		}
-		return new Piece(color, symbol);
+		return piece;
 	}
 
 	public static int countWhitePieces() {
