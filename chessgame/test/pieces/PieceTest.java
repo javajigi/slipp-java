@@ -14,11 +14,13 @@ public class PieceTest extends TestCase {
 	}
 	
 	public void testCountWhitePieces() throws Exception {
+		Piece.resetCountPieces();
 		Piece.create(Piece.COLOR_WHITE, Piece.SYMBOL_PAWN);
 		assertEquals(1, Piece.countWhitePieces());
 	}
 	
 	public void testCountBlackPieces() throws Exception {
+		Piece.resetCountPieces();
 		Piece.create(Piece.COLOR_BLACK, Piece.SYMBOL_PAWN);
 		assertEquals(1, Piece.countBlackPieces());
 	}

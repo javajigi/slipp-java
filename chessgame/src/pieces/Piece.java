@@ -51,4 +51,9 @@ public class Piece {
 	public static int countBlackPieces() {
 		return countBlackPieces;
 	}
+
+	public static void resetCountPieces() {
+		countWhitePieces = 0;
+		countBlackPieces = 0;
+	}
 }

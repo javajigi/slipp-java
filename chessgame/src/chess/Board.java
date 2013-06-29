@@ -2,6 +2,8 @@ package chess;
 
 import java.util.ArrayList;
 
+import pieces.Piece;
+
 class Board {
 	static final String NEW_LINE = System.getProperty("line.separator");
 	
@@ -12,6 +14,7 @@ class Board {
 	}
 
 	private void initialize() {
+		Piece.resetCountPieces();
 		for (int i = 0; i < 8; i++) {
 			Row row = new Row();
 			if (i==0) {

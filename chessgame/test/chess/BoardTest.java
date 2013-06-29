@@ -10,6 +10,7 @@ public class BoardTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
+		Piece.resetCountPieces();
 		board = new Board();
 	}
 	
