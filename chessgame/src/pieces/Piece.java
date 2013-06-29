@@ -6,6 +6,11 @@ public class Piece {
 	public static final String COLOR_EMPTY = "";
 	
 	public static final char SYMBOL_PAWN = 'p';
+	public static final char SYMBOL_ROOK = 'r';
+	public static final char SYMBOL_KNIGHT = 'n';
+	public static final char SYMBOL_BISHOP = 'b';
+	public static final char SYMBOL_QUEEN = 'q';
+	public static final char SYMBOL_KING = 'k';
 	public static final char SYMBOL_EMPTY = '.';
 	
 	private String color;
@@ -22,7 +27,7 @@ public class Piece {
 	
 	public char getSymbol() {
 		if (COLOR_BLACK.equals(color)) {
-			return Character.toUpperCase(SYMBOL_PAWN);
+			return Character.toUpperCase(this.symbol);
 		}
 		return symbol;
 	}

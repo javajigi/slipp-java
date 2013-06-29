@@ -25,4 +25,16 @@ public class RowTest extends TestCase {
 		row.initializeBlackPawn();
 		assertEquals(BLACK_PAWN_ROW, row.print());
 	}
+	
+	public void testInitializeWhiteExceptPawn() throws Exception {
+		Row row = new Row();
+		row.initializeWhiteExceptPawn();
+		assertEquals("rnbqkbnr", row.print());
+	}
+	
+	public void testInitializeBlackExceptPawn() throws Exception {
+		Row row = new Row();
+		row.initializeBlackExceptPawn();
+		assertEquals("RNBQKBNR", row.print());
+	}
 }
