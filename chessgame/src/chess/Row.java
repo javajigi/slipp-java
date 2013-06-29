@@ -9,43 +9,43 @@ public class Row {
 
 	void initializeEmpty() {
 		for (int i = 0; i < 8; i++) {
-			row.add(Piece.create(Piece.Color.EMPTY, Piece.SYMBOL_EMPTY));
+			row.add(Piece.create(Piece.Color.EMPTY, Piece.Symbol.EMPTY));
 		}
 	}
 	
 	void initializeWhitePawn() {
 		for (int i = 0; i < 8; i++) {
-			row.add(Piece.create(Piece.Color.WHITE, Piece.SYMBOL_PAWN));
+			row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.PAWN));
 		}
 	}
 	
 	void initializeBlackPawn() {
 		for (int i = 0; i < 8; i++) {
-			row.add(Piece.create(Piece.Color.BLACK, Piece.SYMBOL_PAWN));
+			row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.PAWN));
 		}
 	}
 	
 	void initializeWhiteExceptPawn() {
-		row.add(Piece.create(Piece.Color.WHITE, Piece.SYMBOL_ROOK));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.SYMBOL_KNIGHT));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.SYMBOL_BISHOP));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.SYMBOL_QUEEN));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.SYMBOL_KING));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.SYMBOL_BISHOP));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.SYMBOL_KNIGHT));
-		row.add(Piece.create(Piece.Color.WHITE, Piece.SYMBOL_ROOK));
+		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.ROOK));
+		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.KNIGHT));
+		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.BISHOP));
+		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.QUEEN));
+		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.KING));
+		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.BISHOP));
+		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.KNIGHT));
+		row.add(Piece.create(Piece.Color.WHITE, Piece.Symbol.ROOK));
 	}
 	
 
 	void initializeBlackExceptPawn() {
-		row.add(Piece.create(Piece.Color.BLACK, Piece.SYMBOL_ROOK));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.SYMBOL_KNIGHT));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.SYMBOL_BISHOP));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.SYMBOL_QUEEN));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.SYMBOL_KING));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.SYMBOL_BISHOP));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.SYMBOL_KNIGHT));
-		row.add(Piece.create(Piece.Color.BLACK, Piece.SYMBOL_ROOK));		
+		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.ROOK));
+		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.KNIGHT));
+		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.BISHOP));
+		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.QUEEN));
+		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.KING));
+		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.BISHOP));
+		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.KNIGHT));
+		row.add(Piece.create(Piece.Color.BLACK, Piece.Symbol.ROOK));		
 	}
 
 	String print() {

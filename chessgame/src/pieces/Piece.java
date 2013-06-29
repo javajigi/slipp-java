@@ -7,21 +7,33 @@ public class Piece {
 		EMPTY;
 	}
 	
-	public static final char SYMBOL_PAWN = 'p';
-	public static final char SYMBOL_ROOK = 'r';
-	public static final char SYMBOL_KNIGHT = 'n';
-	public static final char SYMBOL_BISHOP = 'b';
-	public static final char SYMBOL_QUEEN = 'q';
-	public static final char SYMBOL_KING = 'k';
-	public static final char SYMBOL_EMPTY = '.';
+	public enum Symbol {
+		PAWN('p'),
+		ROOK('r'),
+		KNIGHT('n'),
+		BISHOP('b'),
+		QUEEN('q'),
+		KING('k'),
+		EMPTY('.');
+		
+		private char symbol;
+		
+		private Symbol(char symbol) {
+			this.symbol = symbol;
+		}
+		
+		public char getSymbol() {
+			return symbol;
+		}
+	}
 	
 	private static int countWhitePieces;
 	private static int countBlackPieces;
 	
 	private Color color;
-	private char symbol;
+	private Symbol symbol;
 	
-	private Piece(Color color, char symbol) {
+	private Piece(Color color, Symbol symbol) {
 		this.color = color;
 		this.symbol = symbol;
 	}
@@ -32,12 +44,12 @@ public class Piece {
 	
 	public char getSymbol() {
 		if (isBlack()) {
-			return Character.toUpperCase(this.symbol);
+			return Character.toUpperCase(symbol.getSymbol());
 		}
-		return symbol;
+		return symbol.getSymbol();
 	}
-
-	public static Piece create(Color color, char symbol) {
+	
+	public static Piece create(Color color, Symbol symbol) {
 		Piece piece = new Piece(color, symbol);
 		if (piece.isWhite()) {
 			countWhitePieces++;
