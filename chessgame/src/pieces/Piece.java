@@ -1,5 +1,6 @@
 package pieces;
 
+
 public class Piece {
 	public enum Color {
 		WHITE,
@@ -148,5 +149,13 @@ public class Piece {
 	
 	public static Piece createBlackKing() {
 		return createBlack(Type.KING);
+	}
+
+	public boolean matchColorAndType(Color color, Type type) {
+		if (this.color == color && this.type == type) {
+			return true;
+		}
+		
+		return false;
 	}
 }

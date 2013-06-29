@@ -3,6 +3,8 @@ package chess;
 import java.util.ArrayList;
 
 import pieces.Piece;
+import pieces.Piece.Color;
+import pieces.Piece.Type;
 
 class Board {
 	static final String NEW_LINE = System.getProperty("line.separator");
@@ -45,5 +47,14 @@ class Board {
 			sb.append(printRow(i-1) + NEW_LINE);
 		}
 		return sb.toString();
+	}
+
+	int countPiecesByColorAndType(Color color, Type type) {
+		int count = 0;
+		for (int i = 0; i < 8; i++) {
+			Row row = rows.get(i);
+			count += row.countPiecesByColorAndType(color, type);
+		}
+		return count;
 	}
 }

@@ -6,6 +6,8 @@ import static pieces.Piece.Type.*;
 import java.util.ArrayList;
 
 import pieces.Piece;
+import pieces.Piece.Color;
+import pieces.Piece.Type;
 
 public class Row {
 	private ArrayList<Piece> row = new ArrayList<Piece>();
@@ -57,5 +59,18 @@ public class Row {
 			sb.append(row.get(i).getSymbol());
 		}
 		return sb.toString();
+	}
+
+	int countPiecesByColorAndType(Color color, Type type) {
+		int count = 0;
+		
+		for (int i = 0; i < 8; i++) {
+			Piece piece = row.get(i);
+			if (piece.matchColorAndType(color, type)) {
+				count++;
+			}
+		}
+		
+		return count;
 	}
 }

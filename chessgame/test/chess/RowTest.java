@@ -1,5 +1,8 @@
 package chess;
 
+import static pieces.Piece.Color.*;
+import static pieces.Piece.Type.*;
+
 import junit.framework.TestCase;
 
 public class RowTest extends TestCase {
@@ -38,5 +41,16 @@ public class RowTest extends TestCase {
 		Row row = new Row();
 		row.initializeBlackExceptPawn();
 		assertEquals(BLACK_EXCEPT_PAWN_ROW, row.print());
+	}
+	
+	public void testCountPiecesByColorAndType() throws Exception {
+		Row row = new Row();
+		row.initializeBlackPawn();
+		assertEquals(8, row.countPiecesByColorAndType(BLACK, PAWN));
+		assertEquals(0, row.countPiecesByColorAndType(WHITE, PAWN));
+		
+		row = new Row();
+		row.initializeBlackExceptPawn();
+		assertEquals(1, row.countPiecesByColorAndType(BLACK, KING));
 	}
 }
