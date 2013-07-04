@@ -4,6 +4,9 @@ import static pieces.Piece.Color.BLACK;
 import static pieces.Piece.Color.WHITE;
 import static pieces.Piece.Type.KING;
 import static pieces.Piece.Type.PAWN;
+
+import java.util.ArrayList;
+
 import junit.framework.TestCase;
 import pieces.Piece;
 
@@ -72,5 +75,17 @@ public class RankTest extends TestCase {
 		int xPosition = 2;
 		rank.changePiece(xPosition, whiteKnight);
 		assertEquals(whiteKnight, rank.findPiece(xPosition));
+	}
+	
+	public void testFindsPieceByColor() throws Exception {
+		rank.initializeEmpty();
+		rank.changePiece(0, Piece.createWhiteKnight());
+		rank.changePiece(2, Piece.createWhiteRook());
+		rank.changePiece(5, Piece.createBlackKnight());
+		ArrayList<Piece> whitePieces = rank.findsPieceByColor(WHITE);
+		assertEquals(2, whitePieces.size());
+		
+		ArrayList<Piece> blackPieces = rank.findsPieceByColor(BLACK);
+		assertEquals(1, blackPieces.size());
 	}
 }

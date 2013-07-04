@@ -79,4 +79,14 @@ public class Rank {
 		Piece piece = findPiece(xPosition);
 		piece.changePiece(targetPiece);
 	}
+
+	ArrayList<Piece> findsPieceByColor(Color color) {
+		ArrayList<Piece> pieces = new ArrayList<Piece>();
+		for (Piece piece : rank) {
+			if (piece.matchColor(color)) {
+				pieces.add(piece);
+			}
+		}
+		return pieces;
+	}
 }

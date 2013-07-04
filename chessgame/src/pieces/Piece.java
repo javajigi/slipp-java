@@ -1,6 +1,7 @@
 package pieces;
 
 
+
 public class Piece {
 	public enum Color {
 		WHITE,
@@ -148,11 +149,15 @@ public class Piece {
 	}
 
 	public boolean matchColorAndType(Color color, Type type) {
-		if (this.color == color && this.type == type) {
+		if (matchColor(color) && this.type == type) {
 			return true;
 		}
 		
 		return false;
+	}
+	
+	public boolean matchColor(Color color) {
+		return this.color == color ? true : false;
 	}
 
 	public void changePiece(Piece targetPiece) {
