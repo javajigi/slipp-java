@@ -46,4 +46,11 @@ public class PieceTest extends TestCase {
         Piece blackPawn = Piece.createBlackPawn();
         assertTrue(blackPawn.isBlack());
     }
+    
+    public void testGetPoint() throws Exception {
+    	assertEquals(9.0, Piece.createWhiteQueen().getPoint());
+    	assertEquals(5.0, Piece.createWhiteRook().getPoint());
+    	assertEquals(3.0, Piece.createWhiteBishop().getPoint());
+    	assertEquals(2.5, Piece.createWhiteKnight().getPoint());
+	}
 }

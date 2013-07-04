@@ -9,22 +9,28 @@ public class Piece {
 	}
 	
 	public enum Type {
-		PAWN('p'),
-		ROOK('r'),
-		KNIGHT('n'),
-		BISHOP('b'),
-		QUEEN('q'),
-		KING('k'),
-		EMPTY('.');
+		PAWN('p', 0.5),
+		ROOK('r', 5.0),
+		KNIGHT('n', 2.5),
+		BISHOP('b', 3.0),
+		QUEEN('q', 9.0),
+		KING('k', 0.0),
+		EMPTY('.', 0.0);
 		
 		private char symbol;
+		private double defaultPoint;
 		
-		private Type(char symbol) {
+		private Type(char symbol, double defaultPoint) {
 			this.symbol = symbol;
+			this.defaultPoint = defaultPoint;
 		}
 		
 		public char getSymbol() {
 			return symbol;
+		}
+		
+		public double getDefaultPoint() {
+			return defaultPoint;
 		}
 	}
 	
@@ -163,7 +169,11 @@ public class Piece {
 		this.color = targetPiece.color;
 		this.type = targetPiece.type;
 	}
-
+	
+	public double getPoint() {
+		return type.getDefaultPoint();
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
