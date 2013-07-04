@@ -47,7 +47,7 @@ public class Rank {
 		rank.add(Piece.createBlackKing());
 		rank.add(Piece.createBlackBishop());
 		rank.add(Piece.createBlackKnight());
-		rank.add(Piece.createBlackRook());		
+		rank.add(Piece.createBlackRook());
 	}
 
 	String print() {
@@ -71,7 +71,12 @@ public class Rank {
 		return count;
 	}
 
-	public Piece findPiece(int xPosition) {
+	Piece findPiece(int xPosition) {
 		return rank.get(xPosition);
+	}
+
+	void changePiece(int xPosition, Piece targetPiece) {
+		Piece piece = findPiece(xPosition);
+		piece.changePiece(targetPiece);
 	}
 }

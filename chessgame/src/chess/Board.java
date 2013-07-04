@@ -72,8 +72,9 @@ class Board {
 		return rank.findPiece(position.getX());
 	}
 
-	void addPiece(String position, Piece targetPiece) {
-		Piece piece = findPiece(position);
-		piece.changePiece(targetPiece);
+	void addPiece(String xy, Piece targetPiece) {
+		Position position = new Position(xy);
+		Rank rank = ranks.get(position.getY());
+		rank.changePiece(position.getX(), targetPiece);
 	}
 }
