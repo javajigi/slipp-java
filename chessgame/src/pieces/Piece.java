@@ -85,16 +85,6 @@ public class Piece {
         return false;
     }
     
-	public static Piece create(Color color, Type symbol) {
-		Piece piece = new Piece(color, symbol);
-		if (piece.isWhite()) {
-			countWhitePieces++;
-		} else if (piece.isBlack()) {
-			countBlackPieces++;
-		}
-		return piece;
-	}
-
 	public static Piece noPiece() {
 		return new Piece(Color.NOCOLOR, Type.EMPTY);
 	}

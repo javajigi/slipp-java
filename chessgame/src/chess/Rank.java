@@ -1,13 +1,5 @@
 package chess;
 
-import static pieces.Piece.Color.BLACK;
-import static pieces.Piece.Color.WHITE;
-import static pieces.Piece.Type.BISHOP;
-import static pieces.Piece.Type.KING;
-import static pieces.Piece.Type.KNIGHT;
-import static pieces.Piece.Type.QUEEN;
-import static pieces.Piece.Type.ROOK;
-
 import java.util.ArrayList;
 
 import pieces.Piece;
@@ -36,26 +28,26 @@ public class Rank {
 	}
 	
 	void initializeWhiteExceptPawn() {
-		rank.add(Piece.create(WHITE, ROOK));
-		rank.add(Piece.create(WHITE, KNIGHT));
-		rank.add(Piece.create(WHITE, BISHOP));
-		rank.add(Piece.create(WHITE, QUEEN));
-		rank.add(Piece.create(WHITE, KING));
-		rank.add(Piece.create(WHITE, BISHOP));
-		rank.add(Piece.create(WHITE, KNIGHT));
-		rank.add(Piece.create(WHITE, ROOK));
+		rank.add(Piece.createWhiteRook());
+		rank.add(Piece.createWhiteKnight());
+		rank.add(Piece.createWhiteBishop());
+		rank.add(Piece.createWhiteQueen());
+		rank.add(Piece.createWhiteKing());
+		rank.add(Piece.createWhiteBishop());
+		rank.add(Piece.createWhiteKnight());
+		rank.add(Piece.createWhiteRook());
 	}
 	
 
 	void initializeBlackExceptPawn() {
-		rank.add(Piece.create(BLACK, ROOK));
-		rank.add(Piece.create(BLACK, KNIGHT));
-		rank.add(Piece.create(BLACK, BISHOP));
-		rank.add(Piece.create(BLACK, QUEEN));
-		rank.add(Piece.create(BLACK, KING));
-		rank.add(Piece.create(BLACK, BISHOP));
-		rank.add(Piece.create(BLACK, KNIGHT));
-		rank.add(Piece.create(BLACK, ROOK));		
+		rank.add(Piece.createBlackRook());
+		rank.add(Piece.createBlackKnight());
+		rank.add(Piece.createBlackBishop());
+		rank.add(Piece.createBlackQueen());
+		rank.add(Piece.createBlackKing());
+		rank.add(Piece.createBlackBishop());
+		rank.add(Piece.createBlackKnight());
+		rank.add(Piece.createBlackRook());		
 	}
 
 	String print() {
