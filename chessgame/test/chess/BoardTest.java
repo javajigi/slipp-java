@@ -18,11 +18,13 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testCreate() throws Exception {
+		board.initialize();
 		assertEquals(RankTest.WHITE_PAWN_RANK, board.printRank(1));
 		assertEquals(RankTest.BLACK_PAWN_RANK, board.printRank(6));
 	}
 	
 	public void testPrint() throws Exception {
+		board.initialize();
 		String expected = 
 			RankTest.BLACK_EXCEPT_PAWN_RANK + Board.NEW_LINE +
 			RankTest.BLACK_PAWN_RANK + Board.NEW_LINE +
@@ -41,11 +43,13 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testCountPieces() throws Exception {
+		board.initialize();
 		assertEquals(16, Piece.countWhitePieces());
 		assertEquals(16, Piece.countBlackPieces());
 	}
 	
 	public void testCountPiecesByColorAndType() throws Exception {
+		board.initialize();
 		assertEquals(8, board.countPiecesByColorAndType(BLACK, PAWN));
 		assertEquals(8, board.countPiecesByColorAndType(WHITE, PAWN));
 		assertEquals(1, board.countPiecesByColorAndType(BLACK, KING));
@@ -55,7 +59,13 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testFindPiece() throws Exception {
+		board.initialize();
 		assertEquals('R', board.findPiece("a8").getSymbol());
 		assertEquals('k', board.findPiece("e1").getSymbol());
+	}
+	
+	public void testInitializeEmpty() throws Exception {
+		board.initializeEmpty();
+		System.out.println(board.print());
 	}
 }

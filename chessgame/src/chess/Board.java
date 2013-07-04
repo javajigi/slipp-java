@@ -12,10 +12,9 @@ class Board {
 	ArrayList<Rank> ranks = new ArrayList<Rank>();
 	
 	Board() {
-		initialize();
 	}
 
-	private void initialize() {
+	void initialize() {
 		Piece.resetCountPieces();
 		for (int i = 0; i < 8; i++) {
 			Rank rank = new Rank();
@@ -23,13 +22,22 @@ class Board {
 				rank.initializeWhiteExceptPawn();
 			} else if (i==1) {
 				rank.initializeWhitePawn();
-			} else if (i==6) {		
+			} else if (i==6) {	
 				rank.initializeBlackPawn();
 			} else if (i==7) {
 				rank.initializeBlackExceptPawn();
 			} else {
 				rank.initializeEmpty();
 			}
+			ranks.add(rank);
+		}
+	}
+	
+	void initializeEmpty() {
+		Piece.resetCountPieces();
+		for (int i = 0; i < 8; i++) {
+			Rank rank = new Rank();
+			rank.initializeEmpty();
 			ranks.add(rank);
 		}
 	}
