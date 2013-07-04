@@ -84,4 +84,9 @@ public class Rank {
 		int source = Character.getNumericValue(COLUMN_START_CHAR);
 		return target - source;
 	}
+
+	void addPiece(char columnIndex, Piece piece) {
+		Piece originalPiece = findPiece(columnIndex);
+		originalPiece.changePiece(piece);
+	}
 }

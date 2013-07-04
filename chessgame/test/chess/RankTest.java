@@ -65,4 +65,14 @@ public class RankTest extends TestCase {
 		Piece king = rank.findPiece('e');
 		assertEquals('k', king.getSymbol());
 	}
+	
+	public void testAddPiece() throws Exception {
+		rank.initializeEmpty();
+		char columnIndex = 'a';
+		assertEquals(Piece.noPiece(), rank.findPiece(columnIndex));
+		
+		Piece blackKing = Piece.createBlackKing();
+		rank.addPiece(columnIndex, blackKing);
+		assertEquals(blackKing, rank.findPiece(columnIndex));
+	}
 }
