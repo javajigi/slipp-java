@@ -1,6 +1,7 @@
 package chess;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import pieces.Piece;
 import pieces.Piece.Color;
@@ -76,5 +77,14 @@ class Board {
 		Position position = new Position(xy);
 		Rank rank = ranks.get(position.getY());
 		rank.changePiece(position.getX(), targetPiece);
+	}
+
+	ArrayList<Piece> findsPieceByColor(Color color) {
+		ArrayList<Piece> pieces = new ArrayList<Piece>();
+		for (Rank rank : ranks) {
+			pieces.addAll(rank.findsPieceByColor(color));
+		}
+		Collections.sort(pieces);
+		return pieces;
 	}
 }

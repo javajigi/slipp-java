@@ -5,6 +5,9 @@ import static pieces.Piece.Color.WHITE;
 import static pieces.Piece.Type.BISHOP;
 import static pieces.Piece.Type.KING;
 import static pieces.Piece.Type.PAWN;
+
+import java.util.ArrayList;
+
 import junit.framework.TestCase;
 import pieces.Piece;
 
@@ -77,5 +80,18 @@ public class BoardTest extends TestCase {
 		Piece blackKing = Piece.createBlackKing();
 		board.addPiece(position, blackKing);
 		assertEquals(blackKing, board.findPiece(position));
+	}
+	
+	public void testFindsPieceByColor() throws Exception {
+		board.initializeEmpty();
+		board.addPiece("a1", Piece.createWhiteKing());
+		board.addPiece("a2", Piece.createWhiteKnight());
+		board.addPiece("a3", Piece.createBlackKnight());
+		board.addPiece("c3", Piece.createWhitePawn());
+		board.addPiece("d5", Piece.createWhitePawn());
+		ArrayList<Piece> pieces = board.findsPieceByColor(WHITE);
+		assertEquals(4, pieces.size());
+		assertEquals(Piece.createWhiteKnight(), pieces.get(0));
+		assertEquals(Piece.createWhitePawn(), pieces.get(1));
 	}
 }

@@ -2,7 +2,7 @@ package pieces;
 
 
 
-public class Piece {
+public class Piece implements Comparable<Piece> {
 	public enum Color {
 		WHITE,
 		BLACK,
@@ -170,6 +170,19 @@ public class Piece {
 	}
 	
 	@Override
+	public int compareTo(Piece target) {
+		if (getPoint() > target.getPoint()) {
+			return -1;
+		}
+		
+		if (getPoint() < target.getPoint()) {
+			return 1;
+		}
+		
+		return 0;
+	}
+	
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -192,5 +205,10 @@ public class Piece {
 		if (type != other.type)
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Piece [color=" + color + ", type=" + type + "]";
 	}
 }
