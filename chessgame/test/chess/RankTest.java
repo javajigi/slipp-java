@@ -59,10 +59,10 @@ public class RankTest extends TestCase {
 	
 	public void testFindPiece() throws Exception {
 		rank.initializeWhiteExceptPawn();
-		Piece queen = rank.findPiece('d');
+		Piece queen = rank.findPiece(3);
 		assertEquals('q', queen.getSymbol());
 		
-		Piece king = rank.findPiece('e');
+		Piece king = rank.findPiece(4);
 		assertEquals('k', king.getSymbol());
 	}
 }

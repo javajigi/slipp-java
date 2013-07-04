@@ -1,7 +1,12 @@
 package chess;
 
-import static pieces.Piece.Color.*;
-import static pieces.Piece.Type.*;
+import static pieces.Piece.Color.BLACK;
+import static pieces.Piece.Color.WHITE;
+import static pieces.Piece.Type.BISHOP;
+import static pieces.Piece.Type.KING;
+import static pieces.Piece.Type.KNIGHT;
+import static pieces.Piece.Type.QUEEN;
+import static pieces.Piece.Type.ROOK;
 
 import java.util.ArrayList;
 
@@ -10,7 +15,6 @@ import pieces.Piece.Color;
 import pieces.Piece.Type;
 
 public class Rank {
-	private static final char COLUMN_START_CHAR = 'a';
 	private ArrayList<Piece> rank = new ArrayList<Piece>();
 
 	void initializeEmpty() {
@@ -75,13 +79,7 @@ public class Rank {
 		return count;
 	}
 
-	public Piece findPiece(char columnIndex) {
-		return rank.get(generateColumnIndex(columnIndex));
-	}
-	
-	private int generateColumnIndex(char columnIndex) {
-		int target = Character.getNumericValue(columnIndex);
-		int source = Character.getNumericValue(COLUMN_START_CHAR);
-		return target - source;
+	public Piece findPiece(int xPosition) {
+		return rank.get(xPosition);
 	}
 }

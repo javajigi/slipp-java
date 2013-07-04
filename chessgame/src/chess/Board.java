@@ -66,11 +66,10 @@ class Board {
 		return count;
 	}
 
-	Piece findPiece(String position) {
-		char columnIndex = position.substring(0, 1).toCharArray()[0];
-		int rowIndex = Integer.parseInt(position.substring(1));
-		Rank rank = ranks.get(rowIndex-1);
-		return rank.findPiece(columnIndex);
+	Piece findPiece(String xy) {
+		Position position = new Position(xy);
+		Rank rank = ranks.get(position.getY());
+		return rank.findPiece(position.getX());
 	}
 
 	void addPiece(String position, Piece targetPiece) {
