@@ -13,4 +13,10 @@ public class CharacterTest extends TestCase {
 		assertFalse(Character.isJavaIdentifierStart('7'));
 		assertTrue(Character.isJavaIdentifierStart('_'));
 	}
+	
+	public void testAsciiToInt() throws Exception {
+		int e = Character.getNumericValue('e');
+		int a = Character.getNumericValue('a');
+		assertEquals(4, e-a);
+	}
 }

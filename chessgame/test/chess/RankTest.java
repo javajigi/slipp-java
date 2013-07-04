@@ -1,8 +1,11 @@
 package chess;
 
-import static pieces.Piece.Color.*;
-import static pieces.Piece.Type.*;
+import static pieces.Piece.Color.BLACK;
+import static pieces.Piece.Color.WHITE;
+import static pieces.Piece.Type.KING;
+import static pieces.Piece.Type.PAWN;
 import junit.framework.TestCase;
+import pieces.Piece;
 
 public class RankTest extends TestCase {
 	static final String EMPTY_RANK = "........";
@@ -52,5 +55,14 @@ public class RankTest extends TestCase {
 		rank = new Rank();
 		rank.initializeBlackExceptPawn();
 		assertEquals(1, rank.countPiecesByColorAndType(BLACK, KING));
+	}
+	
+	public void testFindPiece() throws Exception {
+		rank.initializeWhiteExceptPawn();
+		Piece queen = rank.findPiece('d');
+		assertEquals('q', queen.getSymbol());
+		
+		Piece king = rank.findPiece('e');
+		assertEquals('k', king.getSymbol());
 	}
 }

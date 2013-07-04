@@ -57,4 +57,11 @@ class Board {
 		}
 		return count;
 	}
+
+	Piece findPiece(String position) {
+		char columnIndex = position.substring(0, 1).toCharArray()[0];
+		int rowIndex = Integer.parseInt(position.substring(1));
+		Rank rank = ranks.get(rowIndex-1);
+		return rank.findPiece(columnIndex);
+	}
 }

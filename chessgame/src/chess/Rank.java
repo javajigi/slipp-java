@@ -10,6 +10,7 @@ import pieces.Piece.Color;
 import pieces.Piece.Type;
 
 public class Rank {
+	private static final char COLUMN_START_CHAR = 'a';
 	private ArrayList<Piece> rank = new ArrayList<Piece>();
 
 	void initializeEmpty() {
@@ -72,5 +73,15 @@ public class Rank {
 		}
 		
 		return count;
+	}
+
+	public Piece findPiece(char columnIndex) {
+		return rank.get(generateColumnIndex(columnIndex));
+	}
+	
+	private int generateColumnIndex(char columnIndex) {
+		int target = Character.getNumericValue(columnIndex);
+		int source = Character.getNumericValue(COLUMN_START_CHAR);
+		return target - source;
 	}
 }

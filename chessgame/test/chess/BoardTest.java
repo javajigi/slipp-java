@@ -53,4 +53,9 @@ public class BoardTest extends TestCase {
 		assertEquals(2, board.countPiecesByColorAndType(BLACK, BISHOP));
 		assertEquals(2, board.countPiecesByColorAndType(WHITE, BISHOP));
 	}
+	
+	public void testFindPiece() throws Exception {
+		assertEquals('R', board.findPiece("a8").getSymbol());
+		assertEquals('k', board.findPiece("e1").getSymbol());
+	}
 }
