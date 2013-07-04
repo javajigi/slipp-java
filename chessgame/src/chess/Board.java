@@ -72,4 +72,9 @@ class Board {
 		Rank rank = ranks.get(rowIndex-1);
 		return rank.findPiece(columnIndex);
 	}
+
+	void addPiece(String position, Piece targetPiece) {
+		Piece piece = findPiece(position);
+		piece.changePiece(targetPiece);
+	}
 }

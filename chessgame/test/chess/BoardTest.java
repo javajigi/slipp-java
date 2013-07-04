@@ -68,4 +68,14 @@ public class BoardTest extends TestCase {
 		board.initializeEmpty();
 		System.out.println(board.print());
 	}
+	
+	public void testAddPiece() throws Exception {
+		board.initializeEmpty();
+		String position = "a1";
+		assertEquals(Piece.noPiece(), board.findPiece(position));
+		
+		Piece blackKing = Piece.createBlackKing();
+		board.addPiece(position, blackKing);
+		assertEquals(blackKing, board.findPiece(position));
+	}
 }
