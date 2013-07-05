@@ -43,10 +43,12 @@ public class Piece implements Comparable<Piece> {
 	
 	private int x;
 	private int y;
+	private double point;
 	
 	private Piece(Color color, Type type) {
 		this.color = color;
 		this.type = type;
+		this.point = type.getDefaultPoint();
 	}
 
 	Color getColor() {
@@ -166,30 +168,36 @@ public class Piece implements Comparable<Piece> {
 	public void changePiece(Piece targetPiece) {
 		this.color = targetPiece.color;
 		this.type = targetPiece.type;
+		this.point = type.getDefaultPoint();
 	}
 	
 	public double getPoint() {
+		return this.point;
+	}
+	
+	private double getDefaultPoint() {
 		return type.getDefaultPoint();
 	}
 	
-	public double getPoint(Piece target) {
+	public double calculate(Piece target) {
 		if (this.type != Type.PAWN) {
-			return type.getDefaultPoint();
+			return this.point;
 		}
 		
 		if (this.x != target.x) {
-			return type.getDefaultPoint();
+			return this.point;
 		}
 		
 		if (this.y == target.y) {
-			return type.getDefaultPoint();
+			return this.point;
 		}
 		
 		if (this.type == target.type) {
-			return 1.0;
+			this.point = 1.0;
+			return this.point;
 		}
 		
-		return type.getDefaultPoint();
+		return this.point;
 	}
 	
 	public Piece changeX(int x) {
@@ -212,11 +220,11 @@ public class Piece implements Comparable<Piece> {
 	
 	@Override
 	public int compareTo(Piece target) {
-		if (getPoint() > target.getPoint()) {
+		if (getDefaultPoint() > target.getDefaultPoint()) {
 			return -1;
 		}
 		
-		if (getPoint() < target.getPoint()) {
+		if (getDefaultPoint() < target.getDefaultPoint()) {
 			return 1;
 		}
 		

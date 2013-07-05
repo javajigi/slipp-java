@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import pieces.Piece;
-import pieces.Position;
 import pieces.Piece.Color;
 import pieces.Piece.Type;
 
@@ -92,6 +91,11 @@ class Board {
 	public double getTotalPointPerColor(Color color) {
 		ArrayList<Piece> pieces = findsPieceByColor(color);
 		double totalPoint = 0.0;
+		for (Piece source : pieces) {
+			for (Piece target : pieces) {
+				source.calculate(target);
+			}
+		}
 		for (Piece piece : pieces) {
 			totalPoint += piece.getPoint();
 		}

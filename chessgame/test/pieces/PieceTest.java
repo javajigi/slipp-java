@@ -47,43 +47,43 @@ public class PieceTest extends TestCase {
         assertTrue(blackPawn.isBlack());
     }
     
-    public void testGetPointExceptPawn() throws Exception {
+    public void testCalculateExceptPawn() throws Exception {
     	Piece whitePawn = Piece.createWhitePawn().changeX(1).changeY(2);
     	Piece whiteQueen = Piece.createWhiteQueen().changeX(1).changeY(3);
-    	assertEquals(9.0, whiteQueen.getPoint(whitePawn));
-    	assertEquals(5.0, Piece.createWhiteRook().getPoint(whitePawn));
-    	assertEquals(3.0, Piece.createWhiteBishop().getPoint(whitePawn));
-    	assertEquals(2.5, Piece.createWhiteKnight().getPoint(whitePawn));
+    	assertEquals(9.0, whiteQueen.calculate(whitePawn));
+    	assertEquals(5.0, Piece.createWhiteRook().calculate(whitePawn));
+    	assertEquals(3.0, Piece.createWhiteBishop().calculate(whitePawn));
+    	assertEquals(2.5, Piece.createWhiteKnight().calculate(whitePawn));
 	}
     
-    public void testGetPointPawnWhenDifferentType() throws Exception {
+    public void testCalculatePawnWhenDifferentType() throws Exception {
     	Piece whitePawn = Piece.createWhitePawn().changeX(1).changeY(2);
     	Piece whiteQueen = Piece.createWhiteQueen().changeX(1).changeY(3);
-    	assertEquals(0.5, whitePawn.getPoint(whiteQueen));
+    	assertEquals(0.5, whitePawn.calculate(whiteQueen));
 	}
     
-    public void testGetPointPawnWhenSameXY() throws Exception {
+    public void testCalculatePawnWhenSameXY() throws Exception {
     	Piece origin = Piece.createBlackPawn().changeX(1).changeY(2);
     	Piece target = Piece.createBlackPawn().changeX(1).changeY(2);
-    	assertEquals(PAWN.getDefaultPoint(), origin.getPoint(target));
+    	assertEquals(PAWN.getDefaultPoint(), origin.calculate(target));
 	}
     
-    public void testGetPointPawnWhenSameY() throws Exception {
+    public void testCalculatePawnWhenSameY() throws Exception {
     	Piece origin = Piece.createBlackPawn().changeX(1).changeY(2);
     	Piece target = Piece.createBlackPawn().changeX(3).changeY(2);
-    	assertEquals(PAWN.getDefaultPoint(), origin.getPoint(target));
+    	assertEquals(PAWN.getDefaultPoint(), origin.calculate(target));
 	}
     
-    public void testGetPointPawnWhenSameX() throws Exception {
+    public void testCalculatePawnWhenSameX() throws Exception {
     	Piece origin = Piece.createBlackPawn().changeX(1).changeY(2);
     	Piece target = Piece.createBlackPawn().changeX(1).changeY(4);
-    	assertEquals(1.0, origin.getPoint(target));
+    	assertEquals(1.0, origin.calculate(target));
 	}
     
-    public void testGetPointPawnWhenDifferentXY() throws Exception {
+    public void testCalculatePawnWhenDifferentXY() throws Exception {
     	Piece origin = Piece.createBlackPawn().changeX(1).changeY(2);
     	Piece target = Piece.createBlackPawn().changeX(3).changeY(4);
-    	assertEquals(PAWN.getDefaultPoint(), origin.getPoint(target));
+    	assertEquals(PAWN.getDefaultPoint(), origin.calculate(target));
 	}
     
     public void testChangeX() throws Exception {
