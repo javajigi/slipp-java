@@ -8,46 +8,52 @@ import pieces.Piece.Type;
 
 public class Rank {
 	private ArrayList<Piece> rank = new ArrayList<Piece>();
+	
+	private int y;
+	
+	public Rank(int yPosition) {
+		this.y = yPosition;
+	}
 
 	void initializeEmpty() {
 		for (int i = 0; i < 8; i++) {
-			rank.add(Piece.noPiece());
+			rank.add(Piece.noPiece().changeX(i).changeY(y));
 		}
 	}
 	
 	void initializeWhitePawn() {
 		for (int i = 0; i < 8; i++) {
-			rank.add(Piece.createWhitePawn());
+			rank.add(Piece.createWhitePawn().changeX(i).changeY(y));
 		}
 	}
 	
 	void initializeBlackPawn() {
 		for (int i = 0; i < 8; i++) {
-			rank.add(Piece.createBlackPawn());
+			rank.add(Piece.createBlackPawn().changeX(i).changeY(y));
 		}
 	}
 	
 	void initializeWhiteExceptPawn() {
-		rank.add(Piece.createWhiteRook());
-		rank.add(Piece.createWhiteKnight());
-		rank.add(Piece.createWhiteBishop());
-		rank.add(Piece.createWhiteQueen());
-		rank.add(Piece.createWhiteKing());
-		rank.add(Piece.createWhiteBishop());
-		rank.add(Piece.createWhiteKnight());
-		rank.add(Piece.createWhiteRook());
+		rank.add(Piece.createWhiteRook().changeX(0).changeY(y));
+		rank.add(Piece.createWhiteKnight().changeX(1).changeY(y));
+		rank.add(Piece.createWhiteBishop().changeX(2).changeY(y));
+		rank.add(Piece.createWhiteQueen().changeX(3).changeY(y));
+		rank.add(Piece.createWhiteKing().changeX(4).changeY(y));
+		rank.add(Piece.createWhiteBishop().changeX(5).changeY(y));
+		rank.add(Piece.createWhiteKnight().changeX(6).changeY(y));
+		rank.add(Piece.createWhiteRook().changeX(7).changeY(y));
 	}
 	
 
 	void initializeBlackExceptPawn() {
-		rank.add(Piece.createBlackRook());
-		rank.add(Piece.createBlackKnight());
-		rank.add(Piece.createBlackBishop());
-		rank.add(Piece.createBlackQueen());
-		rank.add(Piece.createBlackKing());
-		rank.add(Piece.createBlackBishop());
-		rank.add(Piece.createBlackKnight());
-		rank.add(Piece.createBlackRook());
+		rank.add(Piece.createBlackRook().changeX(0).changeY(y));
+		rank.add(Piece.createBlackKnight().changeX(1).changeY(y));
+		rank.add(Piece.createBlackBishop().changeX(2).changeY(y));
+		rank.add(Piece.createBlackQueen().changeX(3).changeY(y));
+		rank.add(Piece.createBlackKing().changeX(4).changeY(y));
+		rank.add(Piece.createBlackBishop().changeX(5).changeY(y));
+		rank.add(Piece.createBlackKnight().changeX(6).changeY(y));
+		rank.add(Piece.createBlackRook().changeX(7).changeY(y));
 	}
 
 	String print() {

@@ -21,7 +21,7 @@ public class RankTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		rank = new Rank();
+		rank = new Rank(0);
 	}
 	
 	public void testInitializeEmpty() throws Exception {
@@ -55,7 +55,7 @@ public class RankTest extends TestCase {
 		assertEquals(8, rank.countPiecesByColorAndType(BLACK, PAWN));
 		assertEquals(0, rank.countPiecesByColorAndType(WHITE, PAWN));
 		
-		rank = new Rank();
+		rank = new Rank(2);
 		rank.initializeBlackExceptPawn();
 		assertEquals(1, rank.countPiecesByColorAndType(BLACK, KING));
 	}

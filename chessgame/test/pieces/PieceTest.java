@@ -53,4 +53,20 @@ public class PieceTest extends TestCase {
     	assertEquals(3.0, Piece.createWhiteBishop().getPoint());
     	assertEquals(2.5, Piece.createWhiteKnight().getPoint());
 	}
+    
+    public void testChangeX() throws Exception {
+		Piece pawn = Piece.createWhitePawn();
+		int x = 3;
+		
+		pawn.changeX(x);
+		assertEquals(x, pawn.getX());
+	}
+    
+    public void testChangeY() throws Exception {
+		Piece pawn = Piece.createWhitePawn();
+		int y = 3;
+		
+		pawn.changeY(y);
+		assertEquals(y, pawn.getY());
+	}
 }

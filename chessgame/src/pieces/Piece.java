@@ -41,6 +41,9 @@ public class Piece implements Comparable<Piece> {
 	private Color color;
 	private Type type;
 	
+	private int x;
+	private int y;
+	
 	private Piece(Color color, Type type) {
 		this.color = color;
 		this.type = type;
@@ -167,6 +170,24 @@ public class Piece implements Comparable<Piece> {
 	
 	public double getPoint() {
 		return type.getDefaultPoint();
+	}
+	
+	public Piece changeX(int x) {
+		this.x = x;
+		return this;
+	}
+	
+	public int getX() {
+		return this.x;
+	}
+	
+	public Piece changeY(int y) {
+		this.y = y;
+		return this;
+	}
+	
+	public int getY() {
+		return this.y;
 	}
 	
 	@Override

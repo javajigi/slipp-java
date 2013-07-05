@@ -18,7 +18,7 @@ class Board {
 	void initialize() {
 		Piece.resetCountPieces();
 		for (int i = 0; i < 8; i++) {
-			Rank rank = new Rank();
+			Rank rank = new Rank(i);
 			if (i==0) {
 				rank.initializeWhiteExceptPawn();
 			} else if (i==1) {
@@ -37,7 +37,7 @@ class Board {
 	void initializeEmpty() {
 		Piece.resetCountPieces();
 		for (int i = 0; i < 8; i++) {
-			Rank rank = new Rank();
+			Rank rank = new Rank(i);
 			rank.initializeEmpty();
 			ranks.add(rank);
 		}
