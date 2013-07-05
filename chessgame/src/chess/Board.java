@@ -87,4 +87,13 @@ class Board {
 		Collections.sort(pieces);
 		return pieces;
 	}
+
+	public double getTotalPointPerColor(Color color) {
+		ArrayList<Piece> pieces = findsPieceByColor(color);
+		double totalPoint = 0.0;
+		for (Piece piece : pieces) {
+			totalPoint += piece.getPoint();
+		}
+		return totalPoint;
+	}
 }

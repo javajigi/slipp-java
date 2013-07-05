@@ -94,4 +94,17 @@ public class BoardTest extends TestCase {
 		assertEquals(Piece.createWhiteKnight(), pieces.get(0));
 		assertEquals(Piece.createWhitePawn(), pieces.get(1));
 	}
+	
+	public void testGetTotalPointPerColor() throws Exception {
+		board.initializeEmpty();
+		board.addPiece("e1", Piece.createWhiteRook());
+		board.addPiece("f1", Piece.createWhiteKing());
+		board.addPiece("f2", Piece.createWhitePawn());
+		board.addPiece("g2", Piece.createWhitePawn());
+		board.addPiece("f3", Piece.createWhitePawn());
+		board.addPiece("h3", Piece.createWhitePawn());
+		board.addPiece("f4", Piece.createWhiteKnight());
+		board.addPiece("g4", Piece.createWhiteQueen());
+		assertEquals(19.5, board.getTotalPointPerColor(WHITE));
+	}
 }
