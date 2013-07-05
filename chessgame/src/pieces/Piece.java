@@ -172,6 +172,26 @@ public class Piece implements Comparable<Piece> {
 		return type.getDefaultPoint();
 	}
 	
+	public double getPoint(Piece target) {
+		if (this.type != Type.PAWN) {
+			return type.getDefaultPoint();
+		}
+		
+		if (this.x != target.x) {
+			return type.getDefaultPoint();
+		}
+		
+		if (this.y == target.y) {
+			return type.getDefaultPoint();
+		}
+		
+		if (this.type == target.type) {
+			return 1.0;
+		}
+		
+		return type.getDefaultPoint();
+	}
+	
 	public Piece changeX(int x) {
 		this.x = x;
 		return this;

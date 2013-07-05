@@ -1,4 +1,4 @@
-package chess;
+package pieces;
 
 public class Position {
 	private static final char COLUMN_START_CHAR = 'a';

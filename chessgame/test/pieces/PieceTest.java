@@ -47,11 +47,43 @@ public class PieceTest extends TestCase {
         assertTrue(blackPawn.isBlack());
     }
     
-    public void testGetPoint() throws Exception {
-    	assertEquals(9.0, Piece.createWhiteQueen().getPoint());
-    	assertEquals(5.0, Piece.createWhiteRook().getPoint());
-    	assertEquals(3.0, Piece.createWhiteBishop().getPoint());
-    	assertEquals(2.5, Piece.createWhiteKnight().getPoint());
+    public void testGetPointExceptPawn() throws Exception {
+    	Piece whitePawn = Piece.createWhitePawn().changeX(1).changeY(2);
+    	Piece whiteQueen = Piece.createWhiteQueen().changeX(1).changeY(3);
+    	assertEquals(9.0, whiteQueen.getPoint(whitePawn));
+    	assertEquals(5.0, Piece.createWhiteRook().getPoint(whitePawn));
+    	assertEquals(3.0, Piece.createWhiteBishop().getPoint(whitePawn));
+    	assertEquals(2.5, Piece.createWhiteKnight().getPoint(whitePawn));
+	}
+    
+    public void testGetPointPawnWhenDifferentType() throws Exception {
+    	Piece whitePawn = Piece.createWhitePawn().changeX(1).changeY(2);
+    	Piece whiteQueen = Piece.createWhiteQueen().changeX(1).changeY(3);
+    	assertEquals(0.5, whitePawn.getPoint(whiteQueen));
+	}
+    
+    public void testGetPointPawnWhenSameXY() throws Exception {
+    	Piece origin = Piece.createBlackPawn().changeX(1).changeY(2);
+    	Piece target = Piece.createBlackPawn().changeX(1).changeY(2);
+    	assertEquals(PAWN.getDefaultPoint(), origin.getPoint(target));
+	}
+    
+    public void testGetPointPawnWhenSameY() throws Exception {
+    	Piece origin = Piece.createBlackPawn().changeX(1).changeY(2);
+    	Piece target = Piece.createBlackPawn().changeX(3).changeY(2);
+    	assertEquals(PAWN.getDefaultPoint(), origin.getPoint(target));
+	}
+    
+    public void testGetPointPawnWhenSameX() throws Exception {
+    	Piece origin = Piece.createBlackPawn().changeX(1).changeY(2);
+    	Piece target = Piece.createBlackPawn().changeX(1).changeY(4);
+    	assertEquals(1.0, origin.getPoint(target));
+	}
+    
+    public void testGetPointPawnWhenDifferentXY() throws Exception {
+    	Piece origin = Piece.createBlackPawn().changeX(1).changeY(2);
+    	Piece target = Piece.createBlackPawn().changeX(3).changeY(4);
+    	assertEquals(PAWN.getDefaultPoint(), origin.getPoint(target));
 	}
     
     public void testChangeX() throws Exception {
