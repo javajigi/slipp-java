@@ -1,5 +1,7 @@
 package pieces;
 
+import java.util.ArrayList;
+
 
 
 public class Piece implements Comparable<Piece> {
@@ -216,6 +218,16 @@ public class Piece implements Comparable<Piece> {
 	
 	public int getY() {
 		return this.y;
+	}
+	
+	ArrayList<Position> getPossibleMoves() {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		for (int i = 1; i < 8; i++) {
+			positions.add(new Position(x + i, y));
+			positions.add(new Position(x, y + i));
+		}
+		
+		return positions;
 	}
 	
 	@Override

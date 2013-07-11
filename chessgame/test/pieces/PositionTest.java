@@ -1,6 +1,5 @@
-package chess;
+package pieces;
 
-import chess.Position;
 import junit.framework.TestCase;
 
 public class PositionTest extends TestCase {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import pieces.Piece;
+import pieces.Position;
 import pieces.Piece.Color;
 import pieces.Piece.Type;
 
