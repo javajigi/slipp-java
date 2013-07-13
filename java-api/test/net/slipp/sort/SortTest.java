@@ -7,8 +7,14 @@ import junit.framework.TestCase;
 public class SortTest extends TestCase {
 	public void testSortAsc() throws Exception {
 		ArrayList<Person> persons = createValues(new Person(30), new Person(23), new Person(25));
-		Sort.sort(persons);
+		Sort.sortAsc(persons);
 		assertEqualsValues(persons, new Person(23), new Person(25), new Person(30));
+	}
+	
+	public void testSortDesc() throws Exception {
+		ArrayList<Person> persons = createValues(new Person(30), new Person(23), new Person(25));
+		Sort.sortDesc(persons);
+		assertEqualsValues(persons, new Person(30), new Person(25), new Person(23));
 	}
 	
     private void assertEqualsValues(ArrayList<Person> sortedValues, Person... values) {
