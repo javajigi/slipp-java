@@ -1,30 +1,23 @@
 package net.slipp.sort;
 
-public class Sort<T extends SortComparable<? super T>> {
-	public T[] sort(T[] values) {
-		int offset, minimumIndex;
-		for (offset = 0; offset < values.length - 1; offset++) {
-			minimumIndex = getMinimumIndex(values, offset);
-			swap(values, offset, minimumIndex);
-		}
-		return values;
-	}
+import java.util.ArrayList;
+import java.util.Collections;
 
-	int getMinimumIndex(T[] values, int offset) {
-		int index = offset;
-		T minimumValue = values[offset];
-		for (int i = offset + 1; i < values.length; i++) {
-			if ( values[i].compareTo(minimumValue) ) {
-				index = i;
-				minimumValue = values[i];
-			}
+public class Sort {
+	public static void sort(ArrayList<Person> persons) {
+		for (int i = 0; i < persons.size() - 1; i++) {
+			int minimunIndex = findMinimunIndex(persons, i);
+			Collections.swap(persons, i, minimunIndex);
 		}
-		return index;		
 	}
 	
-	void swap(T[] values, int source, int target) {
-		T temp = values[source];
-		values[source] = values[target];
-		values[target] = temp;		
+	private static int findMinimunIndex(ArrayList<Person> values, int currentIndex) {
+		int minimunIndex = currentIndex;
+		for (int j = currentIndex+1; j < values.size(); j++) {
+			if (values.get(j).isYounger(values.get(minimunIndex)) ) {
+				minimunIndex = j;
+			}
+		}
+		return minimunIndex;
 	}
 }

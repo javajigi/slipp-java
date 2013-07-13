@@ -1,19 +1,23 @@
 package net.slipp.sort;
 
-public class Age implements SortComparable<Age> {
+public class Person {
 	private int age;
 
-	public Age(int age) {
+	Person(int age) {
 		this.age = age;
 	}
 	
-	public int getAge() {
+	int getAge() {
 		return age;
 	}
 	
-	@Override
-	public boolean compareTo(Age target) {
+	boolean isYounger(Person target) {
 		return this.age < target.age;
+	}
+	
+	@Override
+	public String toString() {
+		return "Person [age=" + age + "]";
 	}
 
 	@Override
@@ -32,7 +36,7 @@ public class Age implements SortComparable<Age> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Age other = (Age) obj;
+		Person other = (Person) obj;
 		if (age != other.age)
 			return false;
 		return true;
