@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 public class SortTest extends TestCase {
-	public void testSortDesc() throws Exception {
+	public void testSortAsc() throws Exception {
 		ArrayList<Person> persons = createValues(new Person(30), new Person(23), new Person(25));
 		Sort.sort(persons);
 		assertEqualsValues(persons, new Person(23), new Person(25), new Person(30));
