@@ -1,6 +1,6 @@
 package net.slipp.sort;
 
-public class Person implements MyComparable {
+public class Person implements MyComparable<Person> {
 	private int age;
 
 	Person(int age) {
