@@ -14,13 +14,13 @@ public class Sort {
 	private static int findTargetIndex(ArrayList<Person> values, int currentIndex, boolean isAsc) {
 		int targetIndex = currentIndex;
 		for (int j = currentIndex+1; j < values.size(); j++) {
-			boolean isYounger = values.get(j).isYounger(values.get(targetIndex));
+			boolean result = values.get(j).compareTo(values.get(targetIndex));
 			if (isAsc) {
-				if (isYounger) {
+				if (result) {
 					targetIndex = j;
 				}
 			} else {
-				if (!isYounger) {
+				if (!result) {
 					targetIndex = j;
 				}
 			}
