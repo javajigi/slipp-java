@@ -1,13 +1,6 @@
 package net.slipp.extend;
 
 public class Tea extends CaffeineBeverage {
-	void prepareRecipe() {
-		boilWater();
-		brew();
-		pourInCup();
-		addCondiments();
-	}
-
 	public void brew() {
 		System.out.println("티백을 담근다.");
 	}

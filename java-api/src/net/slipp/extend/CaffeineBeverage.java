@@ -1,6 +1,17 @@
 package net.slipp.extend;
 
-public class CaffeineBeverage {
+public abstract class CaffeineBeverage {
+	abstract void brew();
+	
+	abstract void addCondiments();
+	
+	void prepareRecipe() {
+		boilWater();
+		brew();
+		pourInCup();
+		addCondiments();
+	}
+	
 	protected void boilWater() {
 		System.out.println("물을 끓인다.");
 	}
