@@ -60,20 +60,10 @@ public class Student {
 
 		double total = 0.0;
 		for (Grade grade : grades) {
-			total += gradePointsFor(grade);
+			total += basicGradePointsFor(grade);
 		}
 
 		return total / grades.size();
-	}
-
-	int gradePointsFor(Grade grade) {
-		int points = basicGradePointsFor(grade);
-		if(isHonors) {
-			if (points > 0) {
-				points += 1;
-			}
-		}
-		return points;
 	}
 
 	private int basicGradePointsFor(Grade grade) {

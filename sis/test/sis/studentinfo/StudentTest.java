@@ -65,17 +65,12 @@ public class StudentTest extends TestCase {
     }
     
     public void testCalculateHonorStudentGpa() throws Exception {
-        assertGpa(createHonorStudent(Student.Grade.A), 5.0);
-        assertGpa(createHonorStudent(Student.Grade.B), 4.0);
-        assertGpa(createHonorStudent(Student.Grade.C), 3.0);
-        assertGpa(createHonorStudent(Student.Grade.D), 2.0);
-        assertGpa(createHonorStudent(Student.Grade.F), 0.0);
+    	Student student = new Student("a");
+		student.setHonors(); // 전공학생으로 상태 변경
+		student.addGrade(Student.Grade.A);
+		student.addGrade(Student.Grade.B);
+		student.addGrade(Student.Grade.A);
+		student.addGrade(Student.Grade.C);
+        assertEquals(4.25, student.getGpa());
     }
-
-	private Student createHonorStudent(Student.Grade grade) {
-		Student student = new Student("a");
-		student.setHonors();
-		student.addGrade(grade);
-		return student;
-	} 
 }
