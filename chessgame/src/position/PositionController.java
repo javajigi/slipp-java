@@ -3,8 +3,6 @@ package position;
 import java.util.ArrayList;
 import java.util.List;
 
-import pieces.Movable;
-
 public class PositionController {
 	private static List<Movable> linearMovables = new ArrayList<Movable>();
 	private static List<Movable> diagonalMovables = new ArrayList<Movable>();

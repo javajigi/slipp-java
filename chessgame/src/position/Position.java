@@ -2,8 +2,6 @@ package position;
 
 import java.util.ArrayList;
 
-import pieces.Movable;
-
 /**
  * @author javajigi
  *
@@ -42,27 +40,27 @@ public class Position {
 		return this.y;
 	}
 
-	Position moveNorthOne() {
+	public Position moveNorthOne() {
 		return new Position(this.x, this.y + 1);
 	}
 
-	Position moveSouthOne() {
+	public Position moveSouthOne() {
 		return new Position(this.x, this.y - 1);
 	}
 
-	Position moveEastOne() {
+	public Position moveEastOne() {
 		return new Position(this.x + 1, this.y);
 	}
 
-	Position moveWestOne() {
+	public Position moveWestOne() {
 		return new Position(this.x - 1, this.y);
 	}
 	
-	Position moveNorthEastOne() {
+	public Position moveNorthEastOne() {
 		return moveNorthOne().moveEastOne();
 	}
 	
-	Position moveNorthWestOne() {
+	public Position moveNorthWestOne() {
 		return moveNorthOne().moveWestOne();
 	}
 	
@@ -74,7 +72,7 @@ public class Position {
 		return moveSouthOne().moveEastOne();
 	}
 	
-	boolean isValid() {
+	public boolean isValid() {
 		if ( y < 0 || y >= ROW_SIZE) {
 			return false;
 		}
