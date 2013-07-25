@@ -2,16 +2,16 @@ package pieces;
 
 public class Position {
 	private static final char COLUMN_START_CHAR = 'a';
-	
+
 	private int x;
 	private int y;
-	
+
 	public Position(String position) {
 		// 에러 상태에 대한 처리 필요함.
 		this.x = generateColumnIndex(position.charAt(0));
 		this.y = Integer.parseInt(position.substring(1)) - 1;
 	}
-	
+
 	Position(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -26,9 +26,25 @@ public class Position {
 	public int getX() {
 		return this.x;
 	}
-	
+
 	public int getY() {
 		return this.y;
+	}
+
+	Position moveNorthOne() {
+		return new Position(this.x, this.y + 1);
+	}
+
+	Position moveSouthOne() {
+		return new Position(this.x, this.y - 1);
+	}
+
+	Position moveEastOne() {
+		return new Position(this.x + 1, this.y);
+	}
+
+	Position moveWestOne() {
+		return new Position(this.x - 1, this.y);
 	}
 
 	@Override
