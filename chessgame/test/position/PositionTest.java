@@ -17,20 +17,20 @@ public class PositionTest extends TestCase {
 		int startX = 4;
 		int startY = 5;
 		Position source = new Position(startX, startY);
-		assertEquals(new Position(startX, startY + 1), source.moveNorthOne());
-		assertEquals(new Position(startX, startY - 1), source.moveSouthOne());
-		assertEquals(new Position(startX + 1, startY), source.moveEastOne());
-		assertEquals(new Position(startX - 1, startY), source.moveWestOne());
+		assertEquals(new Position(startX, startY + 1), source.move(Direction.NORTH));
+		assertEquals(new Position(startX, startY - 1), source.move(Direction.SOUTH));
+		assertEquals(new Position(startX + 1, startY), source.move(Direction.EAST));
+		assertEquals(new Position(startX - 1, startY), source.move(Direction.WEST));
 	}
 	
 	public void testMoveDiagonal() throws Exception {
 		int startX = 4;
 		int startY = 5;
 		Position source = new Position(startX, startY);
-		assertEquals(new Position(startX + 1, startY + 1), source.moveNorthEastOne());
-		assertEquals(new Position(startX - 1, startY + 1), source.moveNorthWestOne());
-		assertEquals(new Position(startX + 1, startY - 1), source.moveSouthEastOne());
-		assertEquals(new Position(startX - 1, startY - 1), source.moveSouthWestOne());
+		assertEquals(new Position(startX + 1, startY + 1), source.move(Direction.NORTHEAST));
+		assertEquals(new Position(startX - 1, startY + 1), source.move(Direction.NORTHWEST));
+		assertEquals(new Position(startX + 1, startY - 1), source.move(Direction.SOUTHEAST));
+		assertEquals(new Position(startX - 1, startY - 1), source.move(Direction.SOUTHWEST));
 	}
 	
 	public void testFindsLinearPosition() throws Exception {
@@ -39,14 +39,14 @@ public class PositionTest extends TestCase {
 		Position position = new Position(startX, startY);
 		Movable movable = new Movable() {
 			public Position move(Position position) {
-				return position.moveNorthOne();
+				return position.move(Direction.NORTH);
 			}
 		};
 		verifyPositions(position, movable, 2);
 		
 		movable = new Movable() {
 			public Position move(Position position) {
-				return position.moveSouthOne();
+				return position.move(Direction.SOUTH);
 			}
 		};
 		verifyPositions(position, movable, 5);
@@ -58,28 +58,28 @@ public class PositionTest extends TestCase {
 		Position position = new Position(startX, startY);
 		Movable movable = new Movable() {
 			public Position move(Position position) {
-				return position.moveNorthEastOne();
+				return position.move(Direction.NORTHEAST);
 			}
 		};
 		verifyPositions(position, movable, 2);
 		
 		movable = new Movable() {
 			public Position move(Position position) {
-				return position.moveNorthWestOne();
+				return position.move(Direction.NORTHWEST);
 			}
 		};
 		verifyPositions(position, movable, 2);
 		
 		movable = new Movable() {
 			public Position move(Position position) {
-				return position.moveSouthEastOne();
+				return position.move(Direction.SOUTHEAST);
 			}
 		};
 		verifyPositions(position, movable, 3);
 		
 		movable = new Movable() {
 			public Position move(Position position) {
-				return position.moveSouthWestOne();
+				return position.move(Direction.SOUTHWEST);
 			}
 		};
 		verifyPositions(position, movable, 4);

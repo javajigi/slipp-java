@@ -39,39 +39,11 @@ public class Position {
 	public int getY() {
 		return this.y;
 	}
-
-	public Position moveNorthOne() {
-		return new Position(this.x, this.y + 1);
-	}
-
-	public Position moveSouthOne() {
-		return new Position(this.x, this.y - 1);
+	
+	public Position move(Direction direction) {
+		return new Position(x + direction.getXDegree(), y + direction.getYDegree());
 	}
 
-	public Position moveEastOne() {
-		return new Position(this.x + 1, this.y);
-	}
-
-	public Position moveWestOne() {
-		return new Position(this.x - 1, this.y);
-	}
-	
-	public Position moveNorthEastOne() {
-		return moveNorthOne().moveEastOne();
-	}
-	
-	public Position moveNorthWestOne() {
-		return moveNorthOne().moveWestOne();
-	}
-	
-	Position moveSouthWestOne() {
-		return moveSouthOne().moveWestOne();
-	}
-	
-	Position moveSouthEastOne() {
-		return moveSouthOne().moveEastOne();
-	}
-	
 	public boolean isValid() {
 		if ( y < 0 || y >= ROW_SIZE) {
 			return false;

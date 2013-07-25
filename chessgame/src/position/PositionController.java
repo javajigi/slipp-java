@@ -14,22 +14,22 @@ public class PositionController {
 	private static void initializeDiagonalMovables() {
 		diagonalMovables.add(new Movable() {
 			public Position move(Position position) {
-				return position.moveNorthEastOne();
+				return position.move(Direction.NORTHEAST);
 			}
 		});
 		diagonalMovables.add(new Movable() {
 			public Position move(Position position) {
-				return position.moveNorthWestOne();
+				return position.move(Direction.NORTHWEST);
 			}
 		});
 		diagonalMovables.add(new Movable() {
 			public Position move(Position position) {
-				return position.moveSouthEastOne();
+				return position.move(Direction.SOUTHEAST);
 			}
 		});
 		diagonalMovables.add(new Movable() {
 			public Position move(Position position) {
-				return position.moveSouthWestOne();
+				return position.move(Direction.SOUTHWEST);
 			}
 		});
 	}
@@ -37,22 +37,22 @@ public class PositionController {
 	private static void initializeLinearMovables() {
 		linearMovables.add(new Movable() {
 			public Position move(Position position) {
-				return position.moveNorthOne();
+				return position.move(Direction.NORTH);
 			}
 		});
 		linearMovables.add(new Movable() {
 			public Position move(Position position) {
-				return position.moveSouthOne();
+				return position.move(Direction.SOUTH);
 			}
 		});
 		linearMovables.add(new Movable() {
 			public Position move(Position position) {
-				return position.moveEastOne();
+				return position.move(Direction.EAST);
 			}
 		});
 		linearMovables.add(new Movable() {
 			public Position move(Position position) {
-				return position.moveWestOne();
+				return position.move(Direction.WEST);
 			}
 		});
 	}
