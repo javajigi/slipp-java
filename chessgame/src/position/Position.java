@@ -1,6 +1,7 @@
 package position;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author javajigi
@@ -56,14 +57,13 @@ public class Position {
 		return true;
 	}
 	
-	ArrayList<Position> findsPosition(Movable movable) {
+	List<Position> findsPosition(Direction direction) {
 		ArrayList<Position> positions = new ArrayList<Position>();
-		Position currentPosition = movable.move(this);
+		Position currentPosition = move(direction);
 		while(currentPosition.isValid()) {
 			positions.add(currentPosition);
-			currentPosition = movable.move(currentPosition);
+			currentPosition = currentPosition.move(direction);
 		}
-		
 		return positions;
 	}
 

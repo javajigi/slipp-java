@@ -37,56 +37,22 @@ public class PositionTest extends TestCase {
 		int startX = 4;
 		int startY = 5;
 		Position position = new Position(startX, startY);
-		Movable movable = new Movable() {
-			public Position move(Position position) {
-				return position.move(Direction.NORTH);
-			}
-		};
-		verifyPositions(position, movable, 2);
-		
-		movable = new Movable() {
-			public Position move(Position position) {
-				return position.move(Direction.SOUTH);
-			}
-		};
-		verifyPositions(position, movable, 5);
+		verifyPositions(position, Direction.NORTH, 2);
+		verifyPositions(position, Direction.SOUTH, 5);
 	}
 	
 	public void testFindsDiagonalPosition() throws Exception {
 		int startX = 4;
 		int startY = 5;
 		Position position = new Position(startX, startY);
-		Movable movable = new Movable() {
-			public Position move(Position position) {
-				return position.move(Direction.NORTHEAST);
-			}
-		};
-		verifyPositions(position, movable, 2);
-		
-		movable = new Movable() {
-			public Position move(Position position) {
-				return position.move(Direction.NORTHWEST);
-			}
-		};
-		verifyPositions(position, movable, 2);
-		
-		movable = new Movable() {
-			public Position move(Position position) {
-				return position.move(Direction.SOUTHEAST);
-			}
-		};
-		verifyPositions(position, movable, 3);
-		
-		movable = new Movable() {
-			public Position move(Position position) {
-				return position.move(Direction.SOUTHWEST);
-			}
-		};
-		verifyPositions(position, movable, 4);
+		verifyPositions(position, Direction.NORTHEAST, 2);
+		verifyPositions(position, Direction.NORTHWEST, 2);
+		verifyPositions(position, Direction.SOUTHEAST, 3);
+		verifyPositions(position, Direction.SOUTHWEST, 4);
 	}
 
-	private void verifyPositions(Position position, Movable movable, int expectedSize) {
-		assertEquals(expectedSize, position.findsPosition(movable).size());
+	private void verifyPositions(Position position, Direction direction, int expectedSize) {
+		assertEquals(expectedSize, position.findsPosition(direction).size());
 	}
 	
 	public void testIsValid() throws Exception {
