@@ -1,11 +1,16 @@
 package pieces;
 
+import java.util.ArrayList;
+
 /**
  * @author javajigi
  *
  */
 public class Position {
 	private static final char COLUMN_START_CHAR = 'a';
+	
+	private static final int COLUMN_SIZE = 8;
+	private static final int ROW_SIZE = 8;
 
 	private int x;
 	private int y;
@@ -65,6 +70,62 @@ public class Position {
 	
 	Position moveSouthEastOne() {
 		return moveSouthOne().moveEastOne();
+	}
+	
+	ArrayList<Position> findsNorthPosition() {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = moveNorthOne();
+		while(currentPosition.isValid()) {
+			positions.add(currentPosition);
+			currentPosition = currentPosition.moveNorthOne();
+		}
+		
+		return positions;
+	}
+	
+	ArrayList<Position> findsSouthPosition() {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = moveSouthOne();
+		while(currentPosition.isValid()) {
+			positions.add(currentPosition);
+			currentPosition = currentPosition.moveSouthOne();
+		}
+		
+		return positions;
+	}
+	
+	ArrayList<Position> findsEastPosition() {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = moveEastOne();
+		while(currentPosition.isValid()) {
+			positions.add(currentPosition);
+			currentPosition = currentPosition.moveEastOne();
+		}
+		
+		return positions;
+	}
+	
+	ArrayList<Position> findsWestPosition() {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = moveWestOne();
+		while(currentPosition.isValid()) {
+			positions.add(currentPosition);
+			currentPosition = currentPosition.moveWestOne();
+		}
+		
+		return positions;
+	}
+
+	boolean isValid() {
+		if ( y < 0 || y >= ROW_SIZE) {
+			return false;
+		}
+		
+		if ( x < 0 || x >= COLUMN_SIZE) {
+			return false;
+		}
+		
+		return true;
 	}
 
 	@Override
