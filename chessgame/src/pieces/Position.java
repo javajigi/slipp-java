@@ -1,5 +1,9 @@
 package pieces;
 
+/**
+ * @author javajigi
+ *
+ */
 public class Position {
 	private static final char COLUMN_START_CHAR = 'a';
 
@@ -46,6 +50,22 @@ public class Position {
 	Position moveWestOne() {
 		return new Position(this.x - 1, this.y);
 	}
+	
+	Position moveNorthEastOne() {
+		return moveNorthOne().moveEastOne();
+	}
+	
+	Position moveNorthWestOne() {
+		return moveNorthOne().moveWestOne();
+	}
+	
+	Position moveSouthWestOne() {
+		return moveSouthOne().moveWestOne();
+	}
+	
+	Position moveSouthEastOne() {
+		return moveSouthOne().moveEastOne();
+	}
 
 	@Override
 	public int hashCode() {
@@ -70,5 +90,10 @@ public class Position {
 		if (y != other.y)
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Position [x=" + x + ", y=" + y + "]";
 	}
 }

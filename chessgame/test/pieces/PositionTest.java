@@ -22,4 +22,14 @@ public class PositionTest extends TestCase {
 		assertEquals(new Position(startX + 1, startY), source.moveEastOne());
 		assertEquals(new Position(startX - 1, startY), source.moveWestOne());
 	}
+	
+	public void testMoveDiagonal() throws Exception {
+		int startX = 4;
+		int startY = 5;
+		Position source = new Position(startX, startY);
+		assertEquals(new Position(startX + 1, startY + 1), source.moveNorthEastOne());
+		assertEquals(new Position(startX - 1, startY + 1), source.moveNorthWestOne());
+		assertEquals(new Position(startX + 1, startY - 1), source.moveSouthEastOne());
+		assertEquals(new Position(startX - 1, startY - 1), source.moveSouthWestOne());
+	}
 }
