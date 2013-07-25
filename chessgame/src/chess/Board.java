@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import pieces.Piece;
-import pieces.Position;
 import pieces.Piece.Color;
 import pieces.Piece.Type;
+import position.Position;
 
 class Board {
 	static final String NEW_LINE = System.getProperty("line.separator");

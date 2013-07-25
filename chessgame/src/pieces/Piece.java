@@ -2,6 +2,8 @@ package pieces;
 
 import java.util.ArrayList;
 
+import position.Position;
+
 
 
 public class Piece implements Comparable<Piece> {

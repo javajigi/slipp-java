@@ -13,6 +13,7 @@ import static pieces.Piece.Type.ROOK;
 
 import java.util.ArrayList;
 
+import position.Position;
 import junit.framework.TestCase;
 
 public class PieceTest extends TestCase {

@@ -1,5 +1,6 @@
-package pieces;
+package position;
 
+import pieces.Movable;
 import junit.framework.TestCase;
 
 public class PositionTest extends TestCase {

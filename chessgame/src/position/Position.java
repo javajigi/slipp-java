@@ -1,6 +1,8 @@
-package pieces;
+package position;
 
 import java.util.ArrayList;
+
+import pieces.Movable;
 
 /**
  * @author javajigi
@@ -21,7 +23,7 @@ public class Position {
 		this.y = Integer.parseInt(position.substring(1)) - 1;
 	}
 
-	Position(int x, int y) {
+	public Position(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
