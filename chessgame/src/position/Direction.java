@@ -25,4 +25,12 @@ public enum Direction {
 	public int getYDegree() {
 		return yDegree;
 	}
+	
+	public static Direction[] linearDirection() {
+		return new Direction[] { NORTH, EAST, SOUTH, WEST };
+	}
+	
+	public static Direction[] diagonalDirection() {
+		return new Direction[] { NORTHEAST, SOUTHEAST, SOUTHWEST, NORTHWEST };
+	}
 }
