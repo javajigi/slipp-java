@@ -36,11 +36,57 @@ public class PositionTest extends TestCase {
 	public void testFindsLinearPosition() throws Exception {
 		int startX = 4;
 		int startY = 5;
-		Position source = new Position(startX, startY);
-		assertEquals(2, source.findsNorthPosition().size());
-		assertEquals(5, source.findsSouthPosition().size());
-		assertEquals(3, source.findsEastPosition().size());
-		assertEquals(4, source.findsWestPosition().size());
+		Position position = new Position(startX, startY);
+		Movable movable = new Movable() {
+			public Position move(Position position) {
+				return position.moveNorthOne();
+			}
+		};
+		verifyPositions(position, movable, 2);
+		
+		movable = new Movable() {
+			public Position move(Position position) {
+				return position.moveSouthOne();
+			}
+		};
+		verifyPositions(position, movable, 5);
+	}
+	
+	public void testFindsDiagonalPosition() throws Exception {
+		int startX = 4;
+		int startY = 5;
+		Position position = new Position(startX, startY);
+		Movable movable = new Movable() {
+			public Position move(Position position) {
+				return position.moveNorthEastOne();
+			}
+		};
+		verifyPositions(position, movable, 2);
+		
+		movable = new Movable() {
+			public Position move(Position position) {
+				return position.moveNorthWestOne();
+			}
+		};
+		verifyPositions(position, movable, 2);
+		
+		movable = new Movable() {
+			public Position move(Position position) {
+				return position.moveSouthEastOne();
+			}
+		};
+		verifyPositions(position, movable, 3);
+		
+		movable = new Movable() {
+			public Position move(Position position) {
+				return position.moveSouthWestOne();
+			}
+		};
+		verifyPositions(position, movable, 4);
+	}
+
+	private void verifyPositions(Position position, Movable movable, int expectedSize) {
+		assertEquals(expectedSize, position.findsPosition(movable).size());
 	}
 	
 	public void testIsValid() throws Exception {

@@ -72,50 +72,6 @@ public class Position {
 		return moveSouthOne().moveEastOne();
 	}
 	
-	ArrayList<Position> findsNorthPosition() {
-		ArrayList<Position> positions = new ArrayList<Position>();
-		Position currentPosition = moveNorthOne();
-		while(currentPosition.isValid()) {
-			positions.add(currentPosition);
-			currentPosition = currentPosition.moveNorthOne();
-		}
-		
-		return positions;
-	}
-	
-	ArrayList<Position> findsSouthPosition() {
-		ArrayList<Position> positions = new ArrayList<Position>();
-		Position currentPosition = moveSouthOne();
-		while(currentPosition.isValid()) {
-			positions.add(currentPosition);
-			currentPosition = currentPosition.moveSouthOne();
-		}
-		
-		return positions;
-	}
-	
-	ArrayList<Position> findsEastPosition() {
-		ArrayList<Position> positions = new ArrayList<Position>();
-		Position currentPosition = moveEastOne();
-		while(currentPosition.isValid()) {
-			positions.add(currentPosition);
-			currentPosition = currentPosition.moveEastOne();
-		}
-		
-		return positions;
-	}
-	
-	ArrayList<Position> findsWestPosition() {
-		ArrayList<Position> positions = new ArrayList<Position>();
-		Position currentPosition = moveWestOne();
-		while(currentPosition.isValid()) {
-			positions.add(currentPosition);
-			currentPosition = currentPosition.moveWestOne();
-		}
-		
-		return positions;
-	}
-
 	boolean isValid() {
 		if ( y < 0 || y >= ROW_SIZE) {
 			return false;
@@ -126,6 +82,17 @@ public class Position {
 		}
 		
 		return true;
+	}
+	
+	ArrayList<Position> findsPosition(Movable movable) {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = movable.move(this);
+		while(currentPosition.isValid()) {
+			positions.add(currentPosition);
+			currentPosition = movable.move(currentPosition);
+		}
+		
+		return positions;
 	}
 
 	@Override
