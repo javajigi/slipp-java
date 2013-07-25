@@ -1,105 +1,66 @@
 package chess;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import pieces.Piece;
-import pieces.Position;
 import pieces.Piece.Color;
 import pieces.Piece.Type;
 
 class Board {
 	static final String NEW_LINE = System.getProperty("line.separator");
 	
-	ArrayList<Rank> ranks = new ArrayList<Rank>();
+	ArrayList<Row> rows = new ArrayList<Row>();
 	
 	Board() {
+		initialize();
 	}
 
-	void initialize() {
+	private void initialize() {
 		Piece.resetCountPieces();
 		for (int i = 0; i < 8; i++) {
-			Rank rank = new Rank(i);
+			Row row = new Row();
 			if (i==0) {
-				rank.initializeWhiteExceptPawn();
+				row.initializeWhiteExceptPawn();
 			} else if (i==1) {
-				rank.initializeWhitePawn();
-			} else if (i==6) {	
-				rank.initializeBlackPawn();
+				row.initializeWhitePawn();
+			} else if (i==6) {		
+				row.initializeBlackPawn();
 			} else if (i==7) {
-				rank.initializeBlackExceptPawn();
+				row.initializeBlackExceptPawn();
 			} else {
-				rank.initializeEmpty();
+				row.initializeEmpty();
 			}
-			ranks.add(rank);
-		}
-	}
-	
-	void initializeEmpty() {
-		Piece.resetCountPieces();
-		for (int i = 0; i < 8; i++) {
-			Rank rank = new Rank(i);
-			rank.initializeEmpty();
-			ranks.add(rank);
+			rows.add(row);
 		}
 	}
 
-	String printRank(int rankIndex) {
-		Rank rank = ranks.get(rankIndex);
+	String printRow(int rowIndex) {
+		Row row = rows.get(rowIndex);
 		StringBuilder sb = new StringBuilder();
-		sb.append(rank.print());
+		sb.append(row.print());
 		return sb.toString();
 	}
 
 	String print() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 8; i > 0; i--) {
-			sb.append(printRank(i-1) + NEW_LINE);
+			sb.append(printRow(i-1) + NEW_LINE);
 		}
 		return sb.toString();
 	}
 
-	int countPiecesByColorAndType(Color color, Type type) {
-		int count = 0;
-		for (int i = 0; i < 8; i++) {
-			Rank rank = ranks.get(i);
-			count += rank.countPiecesByColorAndType(color, type);
+	public int getCount(Color color, Type type) {
+		int pieceCount = 0;
+		
+		for (Row row : rows) {
+			pieceCount += row.getCount(color, type);			
 		}
-		return count;
+		return pieceCount;
 	}
 
-	Piece findPiece(String xy) {
-		Position position = new Position(xy);
-		Rank rank = ranks.get(position.getY());
-		return rank.findPiece(position.getX());
-	}
-
-	void addPiece(String xy, Piece targetPiece) {
-		Position position = new Position(xy);
-		Rank rank = ranks.get(position.getY());
-		rank.changePiece(position.getX(), targetPiece);
-	}
-
-	ArrayList<Piece> findsPieceByColor(Color color) {
-		ArrayList<Piece> pieces = new ArrayList<Piece>();
-		for (Rank rank : ranks) {
-			pieces.addAll(rank.findsPieceByColor(color));
-		}
-		Collections.sort(pieces);
-		return pieces;
-	}
-
-	public double getTotalPointPerColor(Color color) {
-		ArrayList<Piece> pieces = findsPieceByColor(color);
-		double totalPoint = 0.0;
-		for (Piece source : pieces) {
-			for (Piece target : pieces) {
-				source.calculate(target);
-			}
-		}
-		for (Piece piece : pieces) {
-			totalPoint += piece.getPoint();
-		}
-		return totalPoint;
+	public Piece getPieceByPosition(String position) {
+		Position pos = new Position(position);
+		Row row = rows.get(pos.getY());
+		return row.getPieceByIndex(pos.getX());
 	}
 }
