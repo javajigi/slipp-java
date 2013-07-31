@@ -1,10 +1,6 @@
 package pieces;
 
-import java.util.ArrayList;
-
-
-
-public class Piece implements Comparable<Piece> {
+public class Piece {
 	public enum Color {
 		WHITE,
 		BLACK,
@@ -12,28 +8,28 @@ public class Piece implements Comparable<Piece> {
 	}
 	
 	public enum Type {
-		PAWN('p', 0.5),
-		ROOK('r', 5.0),
+		PAWN('p', 1),
+		ROOK('r', 5),
 		KNIGHT('n', 2.5),
-		BISHOP('b', 3.0),
-		QUEEN('q', 9.0),
-		KING('k', 0.0),
-		EMPTY('.', 0.0);
+		BISHOP('b', 3),
+		QUEEN('q', 9),
+		KING('k', 0),
+		EMPTY('.', 0);
 		
 		private char symbol;
-		private double defaultPoint;
+		private double point;
 		
-		private Type(char symbol, double defaultPoint) {
+		private Type(char symbol, double point) {
 			this.symbol = symbol;
-			this.defaultPoint = defaultPoint;
+			this.point = point;
 		}
 		
 		public char getSymbol() {
 			return symbol;
 		}
 		
-		public double getDefaultPoint() {
-			return defaultPoint;
+		public double getPoint() {
+			return point;
 		}
 	}
 	
@@ -43,17 +39,12 @@ public class Piece implements Comparable<Piece> {
 	private Color color;
 	private Type type;
 	
-	private int x;
-	private int y;
-	private double point;
-	
 	private Piece(Color color, Type type) {
 		this.color = color;
 		this.type = type;
-		this.point = type.getDefaultPoint();
 	}
 
-	Color getColor() {
+	public Color getColor() {
 		return this.color;
 	}
 	
@@ -93,6 +84,16 @@ public class Piece implements Comparable<Piece> {
         return false;
     }
     
+	public static Piece create(Color color, Type symbol) {
+		Piece piece = new Piece(color, symbol);
+		if (piece.isWhite()) {
+			countWhitePieces++;
+		} else if (piece.isBlack()) {
+			countBlackPieces++;
+		}
+		return piece;
+	}
+
 	public static Piece noPiece() {
 		return new Piece(Color.NOCOLOR, Type.EMPTY);
 	}
@@ -155,94 +156,10 @@ public class Piece implements Comparable<Piece> {
 		return createBlack(Type.KING);
 	}
 
-	public boolean matchColorAndType(Color color, Type type) {
-		if (matchColor(color) && this.type == type) {
-			return true;
-		}
-		
-		return false;
-	}
-	
-	public boolean matchColor(Color color) {
-		return this.color == color ? true : false;
+	public Type getType() {
+		return this.type;
 	}
 
-	public void changePiece(Piece targetPiece) {
-		this.color = targetPiece.color;
-		this.type = targetPiece.type;
-		this.point = type.getDefaultPoint();
-	}
-	
-	public double getPoint() {
-		return this.point;
-	}
-	
-	private double getDefaultPoint() {
-		return type.getDefaultPoint();
-	}
-	
-	public double calculate(Piece target) {
-		if (this.type != Type.PAWN) {
-			return this.point;
-		}
-		
-		if (this.x != target.x) {
-			return this.point;
-		}
-		
-		if (this.y == target.y) {
-			return this.point;
-		}
-		
-		if (this.type == target.type) {
-			this.point = 1.0;
-			return this.point;
-		}
-		
-		return this.point;
-	}
-	
-	public Piece changeX(int x) {
-		this.x = x;
-		return this;
-	}
-	
-	public int getX() {
-		return this.x;
-	}
-	
-	public Piece changeY(int y) {
-		this.y = y;
-		return this;
-	}
-	
-	public int getY() {
-		return this.y;
-	}
-	
-	ArrayList<Position> getPossibleMoves() {
-		ArrayList<Position> positions = new ArrayList<Position>();
-		for (int i = 1; i < 8; i++) {
-			positions.add(new Position(x + i, y));
-			positions.add(new Position(x, y + i));
-		}
-		
-		return positions;
-	}
-	
-	@Override
-	public int compareTo(Piece target) {
-		if (getDefaultPoint() > target.getDefaultPoint()) {
-			return -1;
-		}
-		
-		if (getDefaultPoint() < target.getDefaultPoint()) {
-			return 1;
-		}
-		
-		return 0;
-	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
