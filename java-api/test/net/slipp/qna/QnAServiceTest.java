@@ -10,10 +10,10 @@ public class QnAServiceTest extends TestCase {
 	@Override
 	protected void setUp() throws Exception {
 		service = new QnAService();
-		createQuestion(21, "java title21", "this is contents21", "java,test,테스트");
-		createQuestion(11, "oop title11", "this is contents11", "java,oop,java");
 		createQuestion(1, "test title1", "this is contents1", "java,oop,java");
+		createQuestion(21, "java title21", "this is contents21", "java,test,테스트");
 		createQuestion(2, "class title2", "this is contents2", "java,test,테스트");
+		createQuestion(11, "oop title11", "this is contents11", "java,oop,java");
 		createQuestion(3, "object title3", "this is contents3", "refactoring,class,object");
 	}
 
@@ -54,14 +54,8 @@ public class QnAServiceTest extends TestCase {
 	}
 	
 	public void testSortingById() throws Exception {
-		List<Question> questions = service.findsQuestionByIdAsc();
+		List<Question> questions = service.findsQuestionByIdDesc();
 		assertEquals(1, questions.get(0).getId());
 		assertEquals(2, questions.get(1).getId());
-	}
-	
-	public void testSortingByTitle() throws Exception {
-		List<Question> questions = service.findsQuestionByTitleAsc();
-		assertEquals(2, questions.get(0).getId());
-		assertEquals(21, questions.get(1).getId());
 	}	
 }

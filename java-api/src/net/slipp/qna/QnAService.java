@@ -27,11 +27,7 @@ public class QnAService {
 		
 	}
 
-	public List<Question> findsQuestionByIdAsc() {
-		return null;
-	}
-
-	public List<Question> findsQuestionByTitleAsc() {
-		return null;
+	public List<Question> findsQuestionByIdDesc() {
+		return database.findsQuestionByIdDesc();
 	}
 }
