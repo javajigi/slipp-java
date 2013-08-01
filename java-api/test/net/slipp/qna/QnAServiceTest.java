@@ -55,7 +55,7 @@ public class QnAServiceTest extends TestCase {
 	
 	public void testSortingById() throws Exception {
 		List<Question> questions = service.findsQuestionByIdDesc();
-		assertEquals(1, questions.get(0).getId());
-		assertEquals(2, questions.get(1).getId());
+		assertEquals(21, questions.get(0).getId());
+		assertEquals(11, questions.get(1).getId());
 	}	
 }
