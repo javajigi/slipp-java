@@ -35,6 +35,16 @@ public class QnAServiceTest extends TestCase {
 		assertEquals(3, question.sizeOfTags());
 	}
 	
+	public void testCreateAlreadyExistedQuestion() throws Exception {
+//		Question question = new Question(1, "this is title2", "this is contents2");
+//		try {
+//			service.create(question, "");
+//			fail("질문이 이미 존재한다는 Exception이 발생해야 함");
+//		} catch (AlreadyExistedQuestionException e) {
+//			
+//		}
+	}
+	
 	public void testAnswer() throws Exception {
 		int questionId = 1;
 		Answer answer1 = new Answer("answer title1", "answer contents1");
