@@ -17,7 +17,7 @@ public class QnAServiceTest extends TestCase {
 		createQuestion(3, "object title3", "this is contents3", "refactoring,class,object");
 	}
 
-	private void createQuestion(int id, String title, String contents, String tags) {
+	private void createQuestion(int id, String title, String contents, String tags) throws Exception {
 		Question question = new Question(id, title, contents);
 		service.create(question, tags);
 	}
@@ -33,6 +33,16 @@ public class QnAServiceTest extends TestCase {
 		service.create(question, "java,자바,oop,java");
 		assertEquals(question, service.findQuestionById(question.getId()));
 		assertEquals(3, question.sizeOfTags());
+	}
+	
+	public void testCreateAlreadyExistedQuestion() throws Exception {
+		Question question = new Question(1, "this is title2", "this is contents2");
+		try {
+			service.create(question, "");
+			fail("질문이 이미 존재한다는 Exception이 발생해야 함");
+		} catch (AlreadyExistedQuestionException e) {
+			
+		}
 	}
 	
 	public void testAnswer() throws Exception {

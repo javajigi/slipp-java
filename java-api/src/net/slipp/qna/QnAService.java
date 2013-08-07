@@ -5,7 +5,12 @@ import java.util.List;
 public class QnAService {
 	private Database database = new Database();
 	
-	public void create(Question question, String plainTags) {
+	public void create(Question question, String plainTags) throws AlreadyExistedQuestionException {
+		Question existedQuestion = findQuestionById(question.getId());
+		if (existedQuestion != null) {
+			throw new AlreadyExistedQuestionException();
+		}
+		
 		String[] tags = plainTags.split(",");
 		for (String tag : tags) {
 			question.addTag(new Tag(tag));
