@@ -38,6 +38,10 @@ public class RequestHandler extends Thread {
 
 			// 클라이언트로의 메시지중 첫번째 줄을 읽어들인다.
 			String requestMessageLine = inFromClient.readLine();
+			System.out.println("Request Message Line : " + requestMessageLine);
+			if (requestMessageLine == null) {
+				return;
+			}
 
 			// 파싱을 위한 토큰을 생성한다.
 			StringTokenizer tokenizedLine = new StringTokenizer(requestMessageLine);
@@ -80,10 +84,14 @@ public class RequestHandler extends Thread {
 			} else {
 				setContentTypeTo400(outToClient);
 			}
-
-			connection.close();
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

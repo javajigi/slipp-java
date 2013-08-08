@@ -14,10 +14,14 @@ public class WebServer {
         log.log(Level.INFO, "WebServer Socket Created");
 
         // 클라이언트가 연결될때까지 대기한다.
-        Socket connection;
-        while ((connection = listenSocket.accept()) != null) {
-        	RequestHandler requestHandler = new RequestHandler(connection);
-            requestHandler.start();
+        try {
+		    Socket connection;
+		    while ((connection = listenSocket.accept()) != null) {
+		    	RequestHandler requestHandler = new RequestHandler(connection);
+		        requestHandler.start();
+		    }
+        }  finally {
+        	listenSocket.close();
         }
     }
 }
