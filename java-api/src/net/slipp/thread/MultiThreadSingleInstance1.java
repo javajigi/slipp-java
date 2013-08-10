@@ -1,6 +1,6 @@
 package net.slipp.thread;
 
-public class MultiThreadSingleInstance {
+public class MultiThreadSingleInstance1 {
 	public static void main(String[] args) {
 		Student student = new Student();
 		MultiThread thread1 = new MultiThread("재성", student);
@@ -16,13 +16,12 @@ class MultiThread extends Thread {
 
 	public MultiThread(String studentName, Student student) {
 		super(studentName);
-		this.studentName = studentName;
 		this.student = student;
 	}
 	
 	@Override
 	public void run() {
-		student.setName(studentName);
+		student.getMessage(studentName);
 		System.out.println("after name : " + student.getName());
 	}
 }
@@ -34,7 +33,7 @@ class Student {
 	public Student() {
 	}
 	
-	public void setName(String name) {
+	public void getMessage(String name) {
 		this.name = name;
 	}
 	
