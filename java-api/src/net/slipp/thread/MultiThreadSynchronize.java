@@ -1,16 +1,20 @@
 package net.slipp.thread;
 
-public class MultiThreadSynchronize {
-	private int index = 0;
+import java.util.concurrent.atomic.AtomicInteger;
 
+public class MultiThreadSynchronize {
+	private AtomicInteger atomicInt = new AtomicInteger();
+
+	private int index = 0;
+	
 	MultiThreadSynchronize() {
 	}
 
 	public int getMax() {
 		index++;
-		System.out.println("index : " + index);
+		System.out.println(index);
 		try {
-			Thread.sleep(10);
+			Thread.sleep(20);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -36,9 +40,12 @@ class SyncThread extends Thread {
 
 	@Override
 	public void run() {
+		long start = System.currentTimeMillis();
 		int max = synchronize.getMax();
 		while (max < 1000) {
 			max = synchronize.getMax();
 		}
+		long end = System.currentTimeMillis();
+		// System.out.println("execution time : " + (end - start));
 	}
 }
