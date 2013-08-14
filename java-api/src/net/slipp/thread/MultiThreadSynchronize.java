@@ -46,6 +46,6 @@ class SyncThread extends Thread {
 			max = synchronize.getMax();
 		}
 		long end = System.currentTimeMillis();
-		// System.out.println("execution time : " + (end - start));
+		System.out.println("execution time : " + (end - start));
 	}
 }
