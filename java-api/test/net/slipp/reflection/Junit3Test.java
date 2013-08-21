@@ -11,7 +11,7 @@ public class Junit3Test extends TestCase {
 		System.out.println("Running Test2");
 	}
 	
-	public void test3() throws Exception {
+	public void three() throws Exception {
 		System.out.println("Running Test3");
 	}
 }

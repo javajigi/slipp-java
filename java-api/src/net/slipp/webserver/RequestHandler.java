@@ -25,9 +25,8 @@ public class RequestHandler extends Thread {
 			is = connection.getInputStream(); // 사용자 요청
 			os = connection.getOutputStream(); // 사용자 응답
 			
-			
 			// 구현해야 함.
-			
+
 			connection.close();
 		} catch (IOException e) {
 			log.log(Level.SEVERE, e.getMessage());
